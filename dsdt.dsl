@@ -3268,7 +3268,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             0x0070,             // Range Minimum
                             0x0070,             // Range Maximum
                             0x01,               // Alignment
-                            0x08,               // Length
+                            0x02,               // Length
                             )
                         IRQNoFlags ()
                             {8}
