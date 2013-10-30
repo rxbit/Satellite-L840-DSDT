@@ -1,22 +1,4 @@
-/*
- * Intel ACPI Component Architecture
- * AML Disassembler version 20130823-64 [Aug 28 2013]
- * Copyright (c) 2000 - 2013 Intel Corporation
- * 
- * Disassembly of acpi_dsdt.bin, Wed Oct 30 14:08:07 2013
- *
- * Original Table Header:
- *     Signature        "DSDT"
- *     Length           0x0000E0EC (57580)
- *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x80
- *     OEM ID           "TOSQCI"
- *     OEM Table ID     "TOSQCI00"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "ACPI"
- *     Compiler Version 0x00040000 (262144)
- */
-DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
+DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 {
     /*
      * iASL Warning: There were 6 external control methods found during
@@ -31,7 +13,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
     External (HNOT, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
     External (IDAB, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
     External (TNOT, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-
     External (_PR_.CPU0._PCT, MethodObj)    // 0 Arguments
     External (_PR_.CPU0._PPC, IntObj)
     External (CFGD, IntObj)
@@ -46,7 +27,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
     External (PDC6, IntObj)
     External (PDC7, IntObj)
     External (SNXD)
-
     Name (SS1, Zero)
     Name (SS2, Zero)
     Name (SS3, One)
@@ -380,7 +360,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         SLPS,   8, 
         ALAT,   32
     }
-
     OperationRegion (OGNS, SystemMemory, 0xAF7BCC18, 0x00000280)
     Field (OGNS, AnyAcc, Lock, Preserve)
     {
@@ -484,7 +463,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         OADK,   32, 
         XHCM,   8
     }
-
     Scope (_SB)
     {
         Name (PRSA, ResourceTemplate ()
@@ -508,12 +486,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 Return (Zero)
             }
-
             Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
             {
                 Return (BN00 ())
             }
-
             Name (_UID, Zero)  // _UID: Unique ID
             Name (PR00, Package (0x25)
             {
@@ -524,7 +500,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -532,7 +507,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -540,7 +514,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -548,7 +521,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -556,7 +528,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0019FFFF, 
@@ -564,7 +535,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKE, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -572,7 +542,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -580,7 +549,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKF, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -588,7 +556,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -596,7 +563,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001BFFFF, 
@@ -604,7 +570,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKG, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -612,7 +577,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -620,7 +584,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -628,7 +591,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -636,7 +598,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -644,7 +605,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKH, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -652,7 +612,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -660,7 +619,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -668,7 +626,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -676,7 +633,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKF, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -684,7 +640,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -692,7 +647,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -700,7 +654,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -708,7 +661,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -716,7 +668,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -724,7 +675,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -732,7 +682,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0002FFFF, 
@@ -740,7 +689,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -748,7 +696,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -756,7 +703,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -764,7 +710,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -772,7 +717,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -780,7 +724,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -788,7 +731,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -796,7 +738,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -804,7 +745,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0018FFFF, 
@@ -822,7 +762,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -830,7 +769,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -838,7 +776,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -846,7 +783,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -854,7 +790,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0019FFFF, 
@@ -862,7 +797,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x14
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -870,7 +804,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -878,7 +811,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -886,7 +818,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -894,7 +825,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001BFFFF, 
@@ -902,7 +832,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x16
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -910,7 +839,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -918,7 +846,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -926,7 +853,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -934,7 +860,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -942,7 +867,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x17
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -950,7 +874,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -958,7 +881,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -966,7 +888,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -974,7 +895,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -982,7 +902,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -990,7 +909,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -998,7 +916,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1006,7 +923,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1014,7 +930,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1022,7 +937,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1030,7 +944,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0002FFFF, 
@@ -1038,7 +951,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1046,7 +958,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1054,7 +965,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1062,7 +972,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1070,7 +979,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1078,7 +986,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1086,7 +993,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1094,7 +1000,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1102,7 +1007,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0018FFFF, 
@@ -1117,10 +1021,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR00)
                 }
-
                 Return (PR00)
             }
-
             OperationRegion (HBUS, PCI_Config, Zero, 0x0100)
             Field (HBUS, DWordAcc, NoLock, Preserve)
             {
@@ -1186,12 +1088,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     ,   7, 
                 HTSE,   1
             }
-
             OperationRegion (MCHT, SystemMemory, 0xFED10000, 0x1100)
             Field (MCHT, ByteAcc, NoLock, Preserve)
             {
             }
-
             Name (BUF0, ResourceTemplate ()
             {
                 WordBusNumber (ResourceProducer, MinFixed, MaxFixed, PosDecode,
@@ -1345,157 +1245,131 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     CreateDWordField (BUF0, \_SB.PCI0._Y01._LEN, C0LN)  // _LEN: Length
                     Store (Zero, C0LN)
                 }
-
                 If (LEqual (PM1L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y01._RW, C0RW)  // _RW_: Read-Write Status
                     Store (Zero, C0RW)
                 }
-
                 If (PM1H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y02._LEN, C4LN)  // _LEN: Length
                     Store (Zero, C4LN)
                 }
-
                 If (LEqual (PM1H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y02._RW, C4RW)  // _RW_: Read-Write Status
                     Store (Zero, C4RW)
                 }
-
                 If (PM2L)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y03._LEN, C8LN)  // _LEN: Length
                     Store (Zero, C8LN)
                 }
-
                 If (LEqual (PM2L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y03._RW, C8RW)  // _RW_: Read-Write Status
                     Store (Zero, C8RW)
                 }
-
                 If (PM2H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y04._LEN, CCLN)  // _LEN: Length
                     Store (Zero, CCLN)
                 }
-
                 If (LEqual (PM2H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y04._RW, CCRW)  // _RW_: Read-Write Status
                     Store (Zero, CCRW)
                 }
-
                 If (PM3L)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y05._LEN, D0LN)  // _LEN: Length
                     Store (Zero, D0LN)
                 }
-
                 If (LEqual (PM3L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y05._RW, D0RW)  // _RW_: Read-Write Status
                     Store (Zero, D0RW)
                 }
-
                 If (PM3H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y06._LEN, D4LN)  // _LEN: Length
                     Store (Zero, D4LN)
                 }
-
                 If (LEqual (PM3H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y06._RW, D4RW)  // _RW_: Read-Write Status
                     Store (Zero, D4RW)
                 }
-
                 If (PM4L)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y07._LEN, D8LN)  // _LEN: Length
                     Store (Zero, D8LN)
                 }
-
                 If (LEqual (PM4L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y07._RW, D8RW)  // _RW_: Read-Write Status
                     Store (Zero, D8RW)
                 }
-
                 If (PM4H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y08._LEN, DCLN)  // _LEN: Length
                     Store (Zero, DCLN)
                 }
-
                 If (LEqual (PM4H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y08._RW, DCRW)  // _RW_: Read-Write Status
                     Store (Zero, DCRW)
                 }
-
                 If (PM5L)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y09._LEN, E0LN)  // _LEN: Length
                     Store (Zero, E0LN)
                 }
-
                 If (LEqual (PM5L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y09._RW, E0RW)  // _RW_: Read-Write Status
                     Store (Zero, E0RW)
                 }
-
                 If (PM5H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y0A._LEN, E4LN)  // _LEN: Length
                     Store (Zero, E4LN)
                 }
-
                 If (LEqual (PM5H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y0A._RW, E4RW)  // _RW_: Read-Write Status
                     Store (Zero, E4RW)
                 }
-
                 If (PM6L)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y0B._LEN, E8LN)  // _LEN: Length
                     Store (Zero, E8LN)
                 }
-
                 If (LEqual (PM6L, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y0B._RW, E8RW)  // _RW_: Read-Write Status
                     Store (Zero, E8RW)
                 }
-
                 If (PM6H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y0C._LEN, ECLN)  // _LEN: Length
                     Store (Zero, ECLN)
                 }
-
                 If (LEqual (PM6H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y0C._RW, ECRW)  // _RW_: Read-Write Status
                     Store (Zero, ECRW)
                 }
-
                 If (PM0H)
                 {
                     CreateDWordField (BUF0, \_SB.PCI0._Y0D._LEN, F0LN)  // _LEN: Length
                     Store (Zero, F0LN)
                 }
-
                 If (LEqual (PM0H, One))
                 {
                     CreateBitField (BUF0, \_SB.PCI0._Y0D._RW, F0RW)  // _RW_: Read-Write Status
                     Store (Zero, F0RW)
                 }
-
                 CreateDWordField (BUF0, \_SB.PCI0._Y0E._MIN, M1MN)  // _MIN: Minimum Base Address
                 CreateDWordField (BUF0, \_SB.PCI0._Y0E._MAX, M1MX)  // _MAX: Maximum Base Address
                 CreateDWordField (BUF0, \_SB.PCI0._Y0E._LEN, M1LN)  // _LEN: Length
@@ -1520,13 +1394,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (0x00000000, M2MN)
                     }
-
                     Subtract (Add (M2MN, M2LN), One, M2MX)
                 }
-
                 Return (BUF0)
             }
-
             Name (GUID, Buffer (0x10)
             {
                 /* 0000 */   0x5B, 0x4D, 0xDB, 0x33, 0xF7, 0x1F, 0x1C, 0x40,
@@ -1556,7 +1427,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 If (LAnd (LEqual (Arg0, GUID), NEXP))
                 {
                     Store (CDW2, SUPP)
@@ -1567,23 +1437,19 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             NHPG ()
                         }
-
                         If (And (CTRL, 0x04))
                         {
                             NPME ()
                         }
                     }
-
                     If (LNotEqual (Arg1, One))
                     {
                         Or (CDW1, 0x08, CDW1)
                     }
-
                     If (LNotEqual (CDW3, CTRL))
                     {
                         Or (CDW1, 0x10, CDW1)
                     }
-
                     Store (CTRL, CDW3)
                     Store (CTRL, OSCC)
                     Return (Local0)
@@ -1594,7 +1460,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Local0)
                 }
             }
-
             Device (P0P1)
             {
                 Name (_ADR, 0x001E0000)  // _ADR: Address
@@ -1617,7 +1482,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                     }
                 }
-
                 Name (PR04, Package (0x0C)
                 {
                     Package (0x04)
@@ -1627,7 +1491,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKF, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1635,7 +1498,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1643,7 +1505,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKH, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1651,7 +1512,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1659,7 +1519,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1667,7 +1526,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKF, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1675,7 +1533,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1683,7 +1540,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKH, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1691,7 +1547,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKC, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1699,7 +1554,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1707,7 +1561,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1725,7 +1578,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x15
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1733,7 +1585,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1741,7 +1592,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x17
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1749,7 +1599,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1757,7 +1606,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1765,7 +1613,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x15
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1773,7 +1620,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1781,7 +1627,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x17
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1789,7 +1634,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x12
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1797,7 +1641,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1805,7 +1648,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1820,14 +1662,25 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (AR04)
                     }
-
                     Return (PR04)
                 }
             }
-
             Device (LPCB)
             {
                 Name (_ADR, 0x001F0000)  // _ADR: Address
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x02)
+                    {
+                         "device-id", 
+                         Buffer (0x04)
+                         {
+                             0x59, 0x1e, 0x00, 0x00
+                             }
+                    }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
                 Scope (\_SB)
                 {
                     OperationRegion (PCI0.LPCB.LPC1, PCI_Config, 0x40, 0xC0)
@@ -1848,7 +1701,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Offset (0x6E), 
                         XUSB,   1
                     }
-
                     Device (LNKA)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -1857,12 +1709,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PARC, 0x80, PARC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSA)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLA, ResourceTemplate ()
@@ -1875,7 +1725,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PARC, 0x0F), IRQ0)
                             Return (RTLA)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -1883,7 +1732,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PARC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PARC, 0x80))
@@ -1896,7 +1744,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKB)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -1905,12 +1752,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PBRC, 0x80, PBRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSB)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLB, ResourceTemplate ()
@@ -1923,7 +1768,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PBRC, 0x0F), IRQ0)
                             Return (RTLB)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -1931,7 +1775,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PBRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PBRC, 0x80))
@@ -1944,7 +1787,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKC)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -1953,12 +1795,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PCRC, 0x80, PCRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSC)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLC, ResourceTemplate ()
@@ -1971,7 +1811,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PCRC, 0x0F), IRQ0)
                             Return (RTLC)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -1979,7 +1818,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PCRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PCRC, 0x80))
@@ -1992,7 +1830,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKD)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -2001,12 +1838,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PDRC, 0x80, PDRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSD)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLD, ResourceTemplate ()
@@ -2019,7 +1854,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PDRC, 0x0F), IRQ0)
                             Return (RTLD)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2027,7 +1861,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PDRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PDRC, 0x80))
@@ -2040,7 +1873,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKE)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -2049,12 +1881,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PERC, 0x80, PERC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSE)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLE, ResourceTemplate ()
@@ -2067,7 +1897,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PERC, 0x0F), IRQ0)
                             Return (RTLE)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2075,7 +1904,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PERC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PERC, 0x80))
@@ -2088,7 +1916,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKF)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -2097,12 +1924,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PFRC, 0x80, PFRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSF)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLF, ResourceTemplate ()
@@ -2115,7 +1940,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PFRC, 0x0F), IRQ0)
                             Return (RTLF)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2123,7 +1947,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PFRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PFRC, 0x80))
@@ -2136,7 +1959,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKG)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -2145,12 +1967,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PGRC, 0x80, PGRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSG)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLG, ResourceTemplate ()
@@ -2163,7 +1983,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PGRC, 0x0F), IRQ0)
                             Return (RTLG)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2171,7 +1990,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PGRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PGRC, 0x80))
@@ -2184,7 +2002,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Device (LNKH)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
@@ -2193,12 +2010,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PHRC, 0x80, PHRC)
                         }
-
                         Method (_PRS, 0, Serialized)  // _PRS: Possible Resource Settings
                         {
                             Return (PRSH)
                         }
-
                         Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                         {
                             Name (RTLH, ResourceTemplate ()
@@ -2211,7 +2026,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ShiftLeft (One, And (PHRC, 0x0F), IRQ0)
                             Return (RTLH)
                         }
-
                         Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2219,7 +2033,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Decrement (Local0)
                             Store (Local0, PHRC)
                         }
-
                         Method (_STA, 0, Serialized)  // _STA: Status
                         {
                             If (And (PHRC, 0x80))
@@ -2233,7 +2046,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 OperationRegion (LPC0, PCI_Config, 0x40, 0xC0)
                 Field (LPC0, AnyAcc, NoLock, Preserve)
                 {
@@ -2245,7 +2057,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         ,   13, 
                     RCBA,   18
                 }
-
                 Device (EC0)
                 {
                     Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
@@ -2279,7 +2090,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 Store (Zero, ECON)
                             }
                         }
-
                         If (ECON)
                         {
                             If (LGreaterEqual (OSYS, 0x07D6))
@@ -2290,7 +2100,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 Store (Zero, OSTP)
                             }
-
                             Store (BTEN, BLTH)
                             Store (WLA1, WLAN)
                             Store (CBT1, CBTA)
@@ -2298,7 +2107,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (One, CPLE)
                         }
                     }
-
                     OperationRegion (EMEM, SystemMemory, 0xFF808001, 0x017F)
                     Field (EMEM, ByteAcc, NoLock, Preserve)
                     {
@@ -2566,13 +2374,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Offset (0x11A), 
                         PSRO,   8
                     }
-
                     Method (APOL, 1, NotSerialized)
                     {
                         Store (Arg0, DBPL)
                         Store (One, EBPL)
                     }
-
                     Method (_Q20, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x20, P80H)
@@ -2592,7 +2398,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         {
                                             CPOL (One)
                                         }
-
                                         If (ECON)
                                         {
                                             ^^^^BAT1.BSTA ()
@@ -2609,7 +2414,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                     }
                                 }
-
                                 If (LEqual (Local0, 0x16))
                                 {
                                     And (SMST, 0xBF, SMST)
@@ -2623,7 +2427,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Method (_Q08, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (FKSF)
@@ -2632,7 +2435,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             OSMI (0x22, Local0)
                         }
                     }
-
                     Method (_Q09, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x09, P80H)
@@ -2642,7 +2444,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 Store (Zero, PSTA)
                             }
-
                             ^^^^BAT1.BSTA ()
                             Notify (ACAD, 0x80)
                             Notify (BAT1, 0x80)
@@ -2653,7 +2454,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 Store (Zero, ^^^^BAT1.BTCH)
                             }
                         }
-
                         If (MD06)
                         {
                             If (LEqual (HS4F, One))
@@ -2666,32 +2466,27 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Method (_Q9B, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x9B, P80H)
                         Notify (TVAP, 0x8F)
                         Notify (LID, 0x80)
                     }
-
                     Method (_Q9C, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x9C, P80H)
                         Notify (LID, 0x80)
                     }
-
                     Method (_QA0, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0xA0, P80H)
                         FSMI (0x5A, Zero)
                     }
-
                     Method (_QA1, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0xA1, P80H)
                         FSMI (0x5B, Zero)
                     }
-
                     Method (_Q0F, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LOr (MD01, LAnd (LNot (MD01), LNot (MD12))))
@@ -2703,7 +2498,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Notify (^^^PEG0.VGA.LCD, 0x87)
                         }
                     }
-
                     Method (_Q10, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LOr (MD01, LAnd (LNot (MD01), LNot (MD12))))
@@ -2715,17 +2509,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Notify (^^^PEG0.VGA.LCD, 0x86)
                         }
                     }
-
                     Method (_Q11, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x11, P80H)
                     }
-
                     Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x12, P80H)
                     }
-
                     Method (_Q8D, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (One, INP4)
@@ -2735,7 +2526,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Sleep (0x64)
                         Store (0x8D, P80H)
                     }
-
                     Method (_Q8E, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (Zero, INP4)
@@ -2746,38 +2536,31 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Notify (\_PR.CPU0, 0x80)
                             Sleep (0x64)
                         }
-
                         Store (0x8E, P80H)
                     }
-
                     Method (_Q8F, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Notify (TVAP, 0x8E)
                     }
-
                     Method (_Q01, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Notify (BT, 0x90)
                     }
-
                     Method (_Q02, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Notify (BT, 0x90)
                         Store (One, ^^^^TVAP.VRFS)
                     }
-
                     Method (_Q90, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0x02)
                     }
-
                     Method (_Q91, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0x03)
                         Sleep (0x05)
                         ^^^^TVAP.EVNT (0x04)
                     }
-
                     Method (_Q92, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0x02)
@@ -2786,39 +2569,32 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Sleep (0x05)
                         ^^^^TVAP.EVNT (0x04)
                     }
-
                     Method (_Q76, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0xC0)
                     }
-
                     Method (_Q77, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0xC1)
                     }
-
                     Method (_Q78, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0xC2)
                     }
-
                     Method (_Q89, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x89, P80H)
                         FSMI (0xB0, Zero)
                     }
-
                     Method (_Q8A, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (0x8A, P80H)
                         FSMI (0xB1, Zero)
                     }
-
                     Method (_Q79, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         ^^^^TVAP.EVNT (0xC3)
                     }
-
                     Method (_QB0, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (PECL, Local0)
@@ -2827,7 +2603,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ^^^^TVAP.EVNT (0xB2)
                         }
                     }
-
                     Method (_QB1, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         Store (PECL, Local0)
@@ -2836,7 +2611,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             ^^^^TVAP.EVNT (0xB3)
                         }
                     }
-
                     Method (_QB6, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LGreaterEqual (^^^^TVAP.VZOK, One))
@@ -2848,7 +2622,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Method (_QB7, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LGreaterEqual (^^^^TVAP.VZOK, One))
@@ -2860,7 +2633,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             }
                         }
                     }
-
                     Method (_QB4, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LGreaterEqual (^^^^TVAP.VZOK, One))
@@ -2871,14 +2643,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 {
                                     Break
                                 }
-
                                 Sleep (0x64)
                             }
-
                             ^^^^TVAP.EVNT (0xB4)
                         }
                     }
-
                     Method (_QB5, 0, NotSerialized)  // _Qxx: EC Query
                     {
                         If (LGreaterEqual (^^^^TVAP.VZOK, One))
@@ -2889,14 +2658,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 {
                                     Break
                                 }
-
                                 Sleep (0x64)
                             }
-
                             ^^^^TVAP.EVNT (0xB5)
                         }
                     }
-
                     Name (PSTA, Zero)
                     Method (CPOL, 1, NotSerialized)
                     {
@@ -2911,7 +2677,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Device (DMAC)
                 {
                     Name (_HID, EisaId ("PNP0200"))  // _HID: Hardware ID
@@ -2945,7 +2710,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {4}
                     })
                 }
-
                 Device (FWHD)
                 {
                     Name (_HID, EisaId ("INT0800"))  // _HID: Hardware ID
@@ -2957,7 +2721,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             )
                     })
                 }
-
                 Device (HPET)
                 {
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
@@ -2985,10 +2748,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 Return (0x0B)
                             }
                         }
-
                         Return (Zero)
                     }
-
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         If (HPAE)
@@ -2998,22 +2759,18 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 Store (0xFED01000, HPT0)
                             }
-
                             If (LEqual (HPAS, 0x02))
                             {
                                 Store (0xFED02000, HPT0)
                             }
-
                             If (LEqual (HPAS, 0x03))
                             {
                                 Store (0xFED03000, HPT0)
                             }
                         }
-
                         Return (BUF0)
                     }
                 }
-
                 Device (IPIC)
                 {
                     Name (_HID, EisaId ("PNP0000"))  // _HID: Hardware ID
@@ -3125,7 +2882,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {2}
                     })
                 }
-
                 Device (MATH)
                 {
                     Name (_HID, EisaId ("PNP0C04"))  // _HID: Hardware ID
@@ -3141,7 +2897,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {13}
                     })
                 }
-
                 Device (LDRC)
                 {
                     Name (_HID, EisaId ("PNP0C02"))  // _HID: Hardware ID
@@ -3258,7 +3013,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             )
                     })
                 }
-
                 Device (RTC)
                 {
                     Name (_HID, EisaId ("PNP0B00"))  // _HID: Hardware ID
@@ -3274,7 +3028,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {8}
                     })
                 }
-
                 Device (TIMR)
                 {
                     Name (_HID, EisaId ("PNP0100"))  // _HID: Hardware ID
@@ -3296,7 +3049,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {0}
                     })
                 }
-
                 Device (CWDT)
                 {
                     Name (_HID, EisaId ("INT3F0D"))  // _HID: Hardware ID
@@ -3321,13 +3073,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (Zero)
                         }
                     }
-
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Return (BUF0)
                     }
                 }
-
                 OperationRegion (PKBS, SystemIO, 0x60, 0x05)
                 Field (PKBS, ByteAcc, Lock, Preserve)
                 {
@@ -3337,7 +3087,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Offset (0x04), 
                     PKBC,   8
                 }
-
                 Device (PS2K)
                 {
                     Name (_HID, EisaId ("TOS1102"))  // _HID: Hardware ID
@@ -3353,7 +3102,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (Zero)
                         }
                     }
-
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3389,7 +3137,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         EndDependentFn ()
                     })
                 }
-
                 Device (PS2E)
                 {
                     Name (_HID, EisaId ("PNP0303"))  // _HID: Hardware ID
@@ -3404,7 +3151,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (Zero)
                         }
                     }
-
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3440,7 +3186,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         EndDependentFn ()
                     })
                 }
-
                 Device (PS2M)
                 {
                     Name (_HID, EisaId ("TOS0310"))  // _HID: Hardware ID
@@ -3449,7 +3194,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (0x0F)
                     }
-
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IRQ (Edge, ActiveHigh, Exclusive, )
@@ -3468,63 +3212,53 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Mutex (MUTX, 0x00)
     OperationRegion (PRT0, SystemIO, 0x80, 0x04)
     Field (PRT0, DWordAcc, Lock, Preserve)
     {
         P80H,   32
     }
-
     Method (P8XH, 3, Serialized)
     {
         If (LEqual (Arg0, Zero))
         {
             Store (Or (And (P80D, 0xFFFFFF00), Arg1), P80D)
         }
-
         If (LEqual (Arg0, One))
         {
             Store (Or (And (P80D, 0xFFFF00FF), ShiftLeft (Arg1, 0x08)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x02))
         {
             Store (Or (And (P80D, 0xFF00FFFF), ShiftLeft (Arg1, 0x10)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x03))
         {
             Store (Or (And (P80D, 0x00FFFFFF), ShiftLeft (Arg1, 0x18)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x04))
         {
             Store (Or (And (P80D, Zero), Arg1), P80D)
         }
-
         If (LEqual (Arg2, Zero)) {}
         If (LEqual (Arg2, One))
         {
             Store (P80D, P80H)
         }
     }
-
     OperationRegion (SPRT, SystemIO, 0xB2, 0x02)
     Field (SPRT, ByteAcc, Lock, Preserve)
     {
         SSMP,   8
     }
-
     Method (_PIC, 1, NotSerialized)  // _PIC: Interrupt Model
     {
         Store (Arg0, GPIC)
         Store (Arg0, PICM)
     }
-
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
         Store (Zero, P80D)
@@ -3538,7 +3272,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 TRAP (TRTD, 0x1E)
             }
-
             If (LOr (LOr (LEqual (\_SB.PCI0.EHC1.PMEE, One), LEqual (\_SB.PCI0.EHC2.PMEE, One)), LEqual (
                 And (\_SB.PCI0.XHC.PMEE, XHCM), One)))
             {
@@ -3553,7 +3286,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         If (LEqual (Arg0, 0x04))
         {
             P8XH (0x04, 0x54, Zero)
@@ -3561,13 +3293,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Store (One, \_SB.PCI0.LPCB.EC0.FLS4)
             Store (Zero, \_SB.TVAP.OAFG)
         }
-
         If (LEqual (Arg0, 0x05))
         {
             P8XH (0x04, 0x55, Zero)
             P8XH (0x04, 0x55, One)
         }
-
         If (LOr (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)), LEqual (
             Arg0, 0x05)))
         {
@@ -3577,7 +3307,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
         Store (Zero, P80D)
@@ -3587,13 +3316,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 \_SB.PCI0.NHPG ()
             }
-
             If (And (OSCC, 0x04))
             {
                 \_SB.PCI0.NPME ()
             }
         }
-
         If (LEqual (Arg0, 0x03))
         {
             P8XH (0x04, 0xE3, Zero)
@@ -3605,14 +3332,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Store (WN3G, \_SB.PCI0.LPCB.EC0.W3GA)
             Store (One, \_SB.PCI0.LPCB.EC0.CPLE)
         }
-
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
             If (LAnd (DTSE, LGreater (TCNT, One)))
             {
                 TRAP (TRTD, 0x14)
             }
-
             If (LEqual (OSYS, 0x07D2))
             {
                 If (And (CFGD, One))
@@ -3633,7 +3358,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             If (ECON)
             {
                 If (LGreaterEqual (OSYS, 0x07D6))
@@ -3645,37 +3369,30 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, \_SB.PCI0.LPCB.EC0.OSTP)
                 }
             }
-
             If (LEqual (RP1D, Zero))
             {
                 Notify (\_SB.PCI0.RP01, Zero)
             }
-
             If (LEqual (RP2D, Zero))
             {
                 Notify (\_SB.PCI0.RP02, Zero)
             }
-
             If (LEqual (RP3D, Zero))
             {
                 Notify (\_SB.PCI0.RP03, Zero)
             }
-
             If (LEqual (RP4D, Zero))
             {
                 Notify (\_SB.PCI0.RP04, Zero)
             }
-
             If (LEqual (RP5D, Zero))
             {
                 Notify (\_SB.PCI0.RP05, Zero)
             }
-
             If (LEqual (RP6D, Zero))
             {
                 Notify (\_SB.PCI0.RP06, Zero)
             }
-
             If (LEqual (RP7D, Zero))
             {
                 If (LEqual (DSTS, Zero))
@@ -3683,7 +3400,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_SB.PCI0.RP07, Zero)
                 }
             }
-
             If (LEqual (RP8D, Zero))
             {
                 If (LEqual (DSTS, Zero))
@@ -3692,7 +3408,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         If (LEqual (Arg0, 0x04))
         {
             P8XH (0x04, 0xE4, Zero)
@@ -3705,27 +3420,23 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_SB.PCI0.RP07, 0x02)
                 }
             }
-
             Store (BTEN, \_SB.PCI0.LPCB.EC0.BLTH)
             Store (WLA1, \_SB.PCI0.LPCB.EC0.WLAN)
             Store (CBT1, \_SB.PCI0.LPCB.EC0.CBTA)
             Store (WN3G, \_SB.PCI0.LPCB.EC0.W3GA)
             Store (One, \_SB.PCI0.LPCB.EC0.CPLE)
         }
-
         If (LEqual (Arg0, 0x05))
         {
             P8XH (0x04, 0xE5, Zero)
             P8XH (0x04, 0xE5, One)
         }
-
         Return (Package (0x02)
         {
             Zero, 
             Zero
         })
     }
-
     Method (GETB, 3, Serialized)
     {
         Multiply (Arg0, 0x08, Local0)
@@ -3733,7 +3444,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         CreateField (Arg2, Local0, Local1, TBF3)
         Return (TBF3)
     }
-
     Method (PNOT, 0, Serialized)
     {
         If (LGreater (TCNT, One))
@@ -3747,7 +3457,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU0, 0x81)
                 }
             }
-
             If (And (PDC1, 0x08))
             {
                 Notify (\_PR.CPU1, 0x80)
@@ -3757,7 +3466,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU1, 0x81)
                 }
             }
-
             If (And (PDC2, 0x08))
             {
                 Notify (\_PR.CPU2, 0x80)
@@ -3767,7 +3475,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU2, 0x81)
                 }
             }
-
             If (And (PDC3, 0x08))
             {
                 Notify (\_PR.CPU3, 0x80)
@@ -3777,7 +3484,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU3, 0x81)
                 }
             }
-
             If (And (PDC4, 0x08))
             {
                 Notify (\_PR.CPU4, 0x80)
@@ -3787,7 +3493,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU4, 0x81)
                 }
             }
-
             If (And (PDC5, 0x08))
             {
                 Notify (\_PR.CPU5, 0x80)
@@ -3797,7 +3502,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU5, 0x81)
                 }
             }
-
             If (And (PDC6, 0x08))
             {
                 Notify (\_PR.CPU6, 0x80)
@@ -3807,7 +3511,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Notify (\_PR.CPU6, 0x81)
                 }
             }
-
             If (And (PDC7, 0x08))
             {
                 Notify (\_PR.CPU7, 0x80)
@@ -3825,7 +3528,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Notify (\_PR.CPU0, 0x81)
         }
     }
-
     Method (TRAP, 2, Serialized)
     {
         Store (Arg1, SMIF)
@@ -3833,22 +3535,18 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         {
             Store (Zero, TRP0)
         }
-
         If (LEqual (Arg0, TRTD))
         {
             Store (Arg1, DTSF)
             Store (Zero, TRPD)
             Return (DTSF)
         }
-
         If (LEqual (Arg0, TRTI))
         {
             Store (Zero, TRPH)
         }
-
         Return (SMIF)
     }
-
     Scope (_SB.PCI0)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
@@ -3860,39 +3558,32 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (0x07D1, OSYS)
                 }
-
                 If (_OSI ("Windows 2001 SP1"))
                 {
                     Store (0x07D1, OSYS)
                 }
-
                 If (_OSI ("Windows 2001 SP2"))
                 {
                     Store (0x07D2, OSYS)
                 }
-
                 If (_OSI ("Windows 2001.1"))
                 {
                     Store (0x07D3, OSYS)
                 }
-
                 If (_OSI ("Windows 2006"))
                 {
                     Store (0x07D6, OSYS)
                 }
-
                 If (_OSI ("Windows 2009"))
                 {
                     Store (0x07D9, OSYS)
                 }
-
                 If (_OSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
             }
         }
-
         Method (NHPG, 0, Serialized)
         {
             Store (Zero, ^RP01.HPEX)
@@ -3904,7 +3595,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Store (One, ^RP03.HPSX)
             Store (One, ^RP04.HPSX)
         }
-
         Method (NPME, 0, Serialized)
         {
             Store (Zero, ^RP01.PMEX)
@@ -3925,24 +3615,37 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Store (One, ^RP08.PMSX)
         }
     }
-
     Scope (\)
     {
         Name (PICM, Zero)
     }
-
     Scope (_PR)
     {
-        Processor (CPU0, 0x01, 0x00000410, 0x06) {}
-        Processor (CPU1, 0x02, 0x00000410, 0x06) {}
-        Processor (CPU2, 0x03, 0x00000410, 0x06) {}
-        Processor (CPU3, 0x04, 0x00000410, 0x06) {}
-        Processor (CPU4, 0x05, 0x00000410, 0x06) {}
-        Processor (CPU5, 0x06, 0x00000410, 0x06) {}
-        Processor (CPU6, 0x07, 0x00000410, 0x06) {}
-        Processor (CPU7, 0x08, 0x00000410, 0x06) {}
+        Processor (CPU0, 0x01, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU1, 0x02, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU2, 0x03, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU3, 0x04, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU4, 0x05, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU5, 0x06, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU6, 0x07, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU7, 0x08, 0x00000410, 0x06)
+        {
+        }
     }
-
     Scope (_SB.PCI0)
     {
         Device (PDRC)
@@ -4003,7 +3706,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Zero, TBLN)
                 }
-
                 CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y13._BAS, MBR0)  // _BAS: Base Address
                 ShiftLeft (MHBR, 0x0F, MBR0)
                 CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y14._BAS, DBR0)  // _BAS: Base Address
@@ -4018,50 +3720,41 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Method (BRTN, 1, Serialized)
     {
         If (LEqual (And (DID1, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD01, Arg0)
         }
-
         If (LEqual (And (DID2, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD02, Arg0)
         }
-
         If (LEqual (And (DID3, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD03, Arg0)
         }
-
         If (LEqual (And (DID4, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD04, Arg0)
         }
-
         If (LEqual (And (DID5, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD05, Arg0)
         }
-
         If (LEqual (And (DID6, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD06, Arg0)
         }
-
         If (LEqual (And (DID7, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD07, Arg0)
         }
-
         If (LEqual (And (DID8, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD08, Arg0)
         }
     }
-
     Scope (_GPE)
     {
         Method (_L09, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
@@ -4071,56 +3764,47 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 \_SB.PCI0.RP01.HPME ()
                 Notify (\_SB.PCI0.RP01, 0x02)
             }
-
             If (LEqual (RP2D, Zero))
             {
                 \_SB.PCI0.RP02.HPME ()
                 Notify (\_SB.PCI0.RP02, 0x02)
             }
-
             If (LEqual (RP3D, Zero))
             {
                 \_SB.PCI0.RP03.HPME ()
                 Notify (\_SB.PCI0.RP03, 0x02)
             }
-
             If (LEqual (RP4D, Zero))
             {
                 \_SB.PCI0.RP04.HPME ()
                 Notify (\_SB.PCI0.RP04, 0x02)
             }
-
             If (LEqual (RP5D, Zero))
             {
                 \_SB.PCI0.RP05.HPME ()
                 Notify (\_SB.PCI0.RP05, 0x02)
             }
-
             If (LEqual (RP6D, Zero))
             {
                 \_SB.PCI0.RP06.HPME ()
                 Notify (\_SB.PCI0.RP06, 0x02)
             }
-
             If (LEqual (RP7D, Zero))
             {
                 \_SB.PCI0.RP07.HPME ()
                 Notify (\_SB.PCI0.RP07, 0x02)
             }
-
             If (LEqual (RP8D, Zero))
             {
                 \_SB.PCI0.RP08.HPME ()
                 Notify (\_SB.PCI0.RP08, 0x02)
             }
-
             Notify (\_SB.PCI0.PEG0, 0x02)
             Notify (\_SB.PCI0.PEG0.PEGP, 0x02)
             Notify (\_SB.PCI0.PEG1, 0x02)
             Notify (\_SB.PCI0.PEG2, 0x02)
             Notify (\_SB.PCI0.PEG3, 0x02)
         }
-
         Method (_L0D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Notify (\_SB.PCI0.EHC1, 0x02)
@@ -4128,12 +3812,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Notify (\_SB.PCI0.HDEF, 0x02)
             Notify (\_SB.PCI0.GLAN, 0x02)
         }
-
         Method (_L01, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Add (L01C, One, L01C)
         }
-
         Method (_L02, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Store (Zero, GPEC)
@@ -4141,13 +3823,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 \_SB.PCI0.IEIT.EITV ()
             }
-
             If (CondRefOf (\TNOT))
             {
                 TNOT ()
             }
         }
-
         Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
@@ -4155,13 +3835,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 \_SB.PCI0.GFX0.GSCI ()
             }
         }
-
         Method (_L07, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
             Store (0x20, \_SB.PCI0.SBUS.HSTS)
         }
     }
-
     Scope (\)
     {
         OperationRegion (IO_T, SystemIO, 0x1000, 0x10)
@@ -4180,19 +3858,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Offset (0x0F), 
             Offset (0x10)
         }
-
         OperationRegion (IO_D, SystemIO, 0x0810, 0x04)
         Field (IO_D, ByteAcc, NoLock, Preserve)
         {
             TRPD,   8
         }
-
         OperationRegion (IO_H, SystemIO, 0x1000, 0x04)
         Field (IO_H, ByteAcc, NoLock, Preserve)
         {
             TRPH,   8
         }
-
         OperationRegion (PMIO, SystemIO, PMBS, 0x80)
         Field (PMIO, ByteAcc, NoLock, Preserve)
         {
@@ -4208,7 +3883,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 ,   1, 
             GPEC,   1
         }
-
         Field (PMIO, ByteAcc, NoLock, WriteAsZeros)
         {
             Offset (0x20), 
@@ -4221,7 +3895,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             SCIS,   1, 
             Offset (0x66)
         }
-
         OperationRegion (GPIO, SystemIO, GPBS, 0x64)
         Field (GPIO, ByteAcc, NoLock, Preserve)
         {
@@ -4307,7 +3980,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             GL0A,   8, 
             GL0B,   8
         }
-
         OperationRegion (RCRB, SystemMemory, SRCB, 0x4000)
         Field (RCRB, DWordAcc, Lock, Preserve)
         {
@@ -4350,7 +4022,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 ,   1, 
             Offset (0x359E)
         }
-
         Method (GPI0, 4, NotSerialized)
         {
             If (LEqual (Or (Arg0, Arg1), Zero))
@@ -4364,11 +4035,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (0x0384)
                 }
             }
-
             Return (Multiply (0x1E, Subtract (0x09, Add (Arg2, Arg3))
                 ))
         }
-
         Method (GDMA, 2, NotSerialized)
         {
             If (LEqual (Arg0, One))
@@ -4378,10 +4047,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (0x0F)
                 }
             }
-
             Return (Ones)
         }
-
         Method (SFLG, 5, NotSerialized)
         {
             Store (Zero, Local0)
@@ -4392,7 +4059,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Or (ShiftLeft (Arg4, 0x04), Local0, Local0)
             Return (Local0)
         }
-
         Method (SPIO, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
@@ -4408,7 +4074,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 Return (PBUF)
             }
-
             If (LGreater (Arg0, 0xF0))
             {
                 Store (One, DMAE)
@@ -4426,7 +4091,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x04, PIOT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0xB4), And (Arg2, One)
                         ))
                     {
@@ -4443,10 +4107,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Return (PBUF)
         }
-
         Method (SDMA, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
@@ -4462,7 +4124,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 Return (PBUF)
             }
-
             If (LLessEqual (Arg0, 0x78))
             {
                 If (And (Arg1, 0x04))
@@ -4477,7 +4138,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x06, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x14), And (Arg2, 0x20)
                         ))
                     {
@@ -4487,7 +4147,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x05, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x1E), And (Arg2, 0x10)
                         ))
                     {
@@ -4496,7 +4155,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x04, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x2D), And (Arg2, 0x08)
                         ))
                     {
@@ -4505,7 +4163,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x03, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x3C), And (Arg2, 0x04)
                         ))
                     {
@@ -4513,7 +4170,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x02, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x5A), And (Arg2, 0x02)
                         ))
                     {
@@ -4521,7 +4177,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (One, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x78), And (Arg2, One)
                         ))
                     {
@@ -4529,10 +4184,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Return (PBUF)
         }
-
         Method (SETT, 3, Serialized)
         {
             If (And (Arg1, 0x02))
@@ -4541,17 +4194,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (0x0B)
                 }
-
                 If (LAnd (LLessEqual (Arg0, 0xB4), And (Arg2, One)))
                 {
                     Return (0x09)
                 }
             }
-
             Return (0x04)
         }
     }
-
     Scope (_SB.PCI0)
     {
         Device (GLAN)
@@ -4577,7 +4227,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Device (EHC1)
         {
             Name (_ADR, 0x001D0000)  // _ADR: Address
@@ -4592,7 +4241,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     ,   1, 
                 PWUC,   8
             }
-
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
                 If (Arg0)
@@ -4604,17 +4252,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, PWUC)
                 }
             }
-
             Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
-
             Device (HUBN)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -4632,7 +4277,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                         Return (UPCA)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -4645,7 +4289,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                         Return (PLDP)
                     }
-
                     Device (PR11)
                     {
                         Name (_ADR, One)  // _ADR: Address
@@ -4660,7 +4303,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4674,7 +4316,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR12)
                     {
                         Name (_ADR, 0x02)  // _ADR: Address
@@ -4689,7 +4330,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4703,7 +4343,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR13)
                     {
                         Name (_ADR, 0x03)  // _ADR: Address
@@ -4718,7 +4357,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4732,7 +4370,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR14)
                     {
                         Name (_ADR, 0x04)  // _ADR: Address
@@ -4747,7 +4384,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4760,7 +4396,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -4812,15 +4447,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR15)
                     {
                         Name (_ADR, 0x05)  // _ADR: Address
@@ -4835,7 +4467,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4848,7 +4479,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -4900,15 +4530,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR16)
                     {
                         Name (_ADR, 0x06)  // _ADR: Address
@@ -4923,7 +4550,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -4936,7 +4562,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -4988,15 +4613,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR17)
                     {
                         Name (_ADR, 0x07)  // _ADR: Address
@@ -5011,7 +4633,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5024,7 +4645,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -5076,15 +4696,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR18)
                     {
                         Name (_ADR, 0x08)  // _ADR: Address
@@ -5099,7 +4716,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5115,14 +4731,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (EHC2)
         {
             Name (_ADR, 0x001A0000)  // _ADR: Address
@@ -5137,7 +4751,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     ,   1, 
                 PWUC,   6
             }
-
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
                 If (Arg0)
@@ -5149,17 +4762,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, PWUC)
                 }
             }
-
             Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
-
             Device (HUBN)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -5177,7 +4787,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                         Return (UPCA)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5190,7 +4799,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                         Return (PLDP)
                     }
-
                     Device (PR11)
                     {
                         Name (_ADR, One)  // _ADR: Address
@@ -5205,7 +4813,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5219,7 +4826,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR12)
                     {
                         Name (_ADR, 0x02)  // _ADR: Address
@@ -5234,7 +4840,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5247,7 +4852,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -5299,15 +4903,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR13)
                     {
                         Name (_ADR, 0x03)  // _ADR: Address
@@ -5322,7 +4923,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5335,7 +4935,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
@@ -5387,15 +4986,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR14)
                     {
                         Name (_ADR, 0x04)  // _ADR: Address
@@ -5410,7 +5006,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5424,7 +5019,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR15)
                     {
                         Name (_ADR, 0x05)  // _ADR: Address
@@ -5439,7 +5033,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5453,7 +5046,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Return (PLDP)
                         }
                     }
-
                     Device (PR16)
                     {
                         Name (_ADR, 0x06)  // _ADR: Address
@@ -5468,7 +5060,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                         {
                             Name (PLDP, Package (0x01)
@@ -5484,14 +5075,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (XHC)
         {
             Name (_ADR, 0x00140000)  // _ADR: Address
@@ -5508,7 +5097,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 PR3,    32, 
                 PR3M,   32
             }
-
             Method (CUID, 1, Serialized)
             {
                 If (LEqual (Arg0, Buffer (0x10)
@@ -5519,10 +5107,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (POSC, 3, Serialized)
             {
                 CreateDWordField (Arg2, Zero, CDW1)
@@ -5531,12 +5117,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Or (CDW1, 0x08, CDW1)
                 }
-
                 If (LEqual (XHCI, Zero))
                 {
                     Or (CDW1, 0x02, CDW1)
                 }
-
                 If (LNot (And (CDW1, One)))
                 {
                     If (And (CDW3, One))
@@ -5548,10 +5132,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         XSEL ()
                     }
                 }
-
                 Return (Arg2)
             }
-
             Method (XSEL, 0, Serialized)
             {
                 If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
@@ -5567,7 +5149,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (One, XUSB)
                 }
             }
-
             Method (ESEL, 0, Serialized)
             {
                 If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
@@ -5577,17 +5158,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, XUSB)
                 }
             }
-
             Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)  // _S4D: S4 Device State
             {
                 Return (0x02)
             }
-
             Device (RHUB)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -5607,10 +5185,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5626,11 +5202,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP2)
                 {
                     Name (_ADR, 0x02)  // _ADR: Address
@@ -5647,10 +5221,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5666,11 +5238,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP3)
                 {
                     Name (_ADR, 0x03)  // _ADR: Address
@@ -5687,10 +5257,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5706,11 +5274,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP4)
                 {
                     Name (_ADR, 0x04)  // _ADR: Address
@@ -5727,10 +5293,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5746,11 +5310,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP1)
                 {
                     Name (_ADR, 0x05)  // _ADR: Address
@@ -5767,10 +5329,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5786,11 +5346,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP2)
                 {
                     Name (_ADR, 0x06)  // _ADR: Address
@@ -5807,10 +5365,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5826,11 +5382,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP3)
                 {
                     Name (_ADR, 0x07)  // _ADR: Address
@@ -5847,10 +5401,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5866,11 +5418,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP4)
                 {
                     Name (_ADR, 0x08)  // _ADR: Address
@@ -5887,10 +5437,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
                     {
                         Name (PLDP, Package (0x01)
@@ -5906,19 +5454,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (HDEF)
         {
             Name (_ADR, 0x001B0000)  // _ADR: Address
@@ -5934,7 +5479,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     ,   15, 
                 PMES,   1
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (WKMD)
@@ -5955,7 +5499,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Device (DOCK)
         {
             Name (_HID, "ABCD0000")  // _HID: Hardware ID
@@ -5966,14 +5509,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 P8XH (Zero, 0xED, Zero)
                 Return (Zero)
             }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LEqual (ECON, Zero))
                 {
                     Return (Zero)
                 }
-
                 If (DSTS)
                 {
                     Return (0x0F)
@@ -5983,7 +5524,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Zero)
                 }
             }
-
             Method (_DCK, 1, NotSerialized)  // _DCK: Dock Present
             {
                 P8XH (Zero, 0xD3, Zero)
@@ -5997,7 +5537,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (One)
                 }
             }
-
             Name (_EDL, Package (0x05)  // _EDL: Eject Device List
             {
                 ^RP07.PXSX, 
@@ -6007,7 +5546,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HDEF
             })
         }
-
         Device (RP01)
         {
             Name (_ADR, 0x001C0000)  // _ADR: Address
@@ -6035,7 +5573,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6043,7 +5580,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6053,7 +5589,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6071,11 +5606,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -6095,7 +5628,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR05, Package (0x04)
             {
                 Package (0x04)
@@ -6105,7 +5637,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6113,7 +5644,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6121,7 +5651,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6139,7 +5668,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6147,7 +5675,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6155,7 +5682,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6170,11 +5696,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR05)
                 }
-
                 Return (PR05)
             }
         }
-
         Device (RP02)
         {
             Name (_ADR, 0x001C0001)  // _ADR: Address
@@ -6202,7 +5726,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6210,7 +5733,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6220,7 +5742,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6238,11 +5759,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -6262,7 +5781,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR06, Package (0x04)
             {
                 Package (0x04)
@@ -6272,7 +5790,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6280,7 +5797,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6288,7 +5804,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6306,7 +5821,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6314,7 +5828,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6322,7 +5835,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6337,10 +5849,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR06)
                 }
-
                 Return (PR06)
             }
-
             Device (FRES)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6363,7 +5873,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         })
                     }
                 }
-
                 Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
                 {
                     If (LAnd (MD00, MD09))
@@ -6384,7 +5893,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Device (RP03)
         {
             Name (_ADR, 0x001C0002)  // _ADR: Address
@@ -6412,7 +5920,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6420,7 +5927,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6430,7 +5936,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6448,11 +5953,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (Package (0x02)
@@ -6461,7 +5964,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero
                 })
             }
-
             Name (PR07, Package (0x04)
             {
                 Package (0x04)
@@ -6471,7 +5973,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6479,7 +5980,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6487,7 +5987,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6505,7 +6004,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6513,7 +6011,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6521,7 +6018,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6536,11 +6032,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR07)
                 }
-
                 Return (PR07)
             }
         }
-
         Device (RP04)
         {
             Name (_ADR, 0x001C0003)  // _ADR: Address
@@ -6568,7 +6062,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6576,7 +6069,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6586,7 +6078,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6604,11 +6095,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -6628,7 +6117,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR08, Package (0x04)
             {
                 Package (0x04)
@@ -6638,7 +6126,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6646,7 +6133,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6654,7 +6140,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6672,7 +6157,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6680,7 +6164,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6688,7 +6171,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6703,11 +6185,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR08)
                 }
-
                 Return (PR08)
             }
         }
-
         Device (RP05)
         {
             Name (_ADR, 0x001C0004)  // _ADR: Address
@@ -6735,7 +6215,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6743,7 +6222,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6753,7 +6231,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6771,11 +6248,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -6795,7 +6270,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR09, Package (0x04)
             {
                 Package (0x04)
@@ -6805,7 +6279,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6813,7 +6286,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6821,7 +6293,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6839,7 +6310,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6847,7 +6317,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6855,7 +6324,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6870,11 +6338,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR09)
                 }
-
                 Return (PR09)
             }
         }
-
         Device (RP06)
         {
             Name (_ADR, 0x001C0005)  // _ADR: Address
@@ -6902,7 +6368,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -6910,7 +6375,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -6920,7 +6384,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -6938,11 +6401,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -6962,7 +6423,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR0C, Package (0x04)
             {
                 Package (0x04)
@@ -6972,7 +6432,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6980,7 +6439,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -6988,7 +6446,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7006,7 +6463,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7014,7 +6470,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7022,7 +6477,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7037,11 +6491,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR0C)
                 }
-
                 Return (PR0C)
             }
         }
-
         Device (RP07)
         {
             Name (_ADR, 0x001C0006)  // _ADR: Address
@@ -7069,7 +6521,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -7077,7 +6528,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -7087,7 +6537,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -7105,11 +6554,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -7129,7 +6576,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR0D, Package (0x04)
             {
                 Package (0x04)
@@ -7139,7 +6585,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7147,7 +6592,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7155,7 +6599,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKE, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7173,7 +6616,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7181,7 +6623,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7189,7 +6630,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x14
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7204,11 +6644,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR0D)
                 }
-
                 Return (PR0D)
             }
         }
-
         Device (RP08)
         {
             Name (_ADR, 0x001C0007)  // _ADR: Address
@@ -7236,7 +6674,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                 Offset (0x9C), 
@@ -7244,7 +6681,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -7254,7 +6690,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -7272,11 +6707,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 If (PMEE)
@@ -7296,7 +6729,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (PR0E, Package (0x04)
             {
                 Package (0x04)
@@ -7306,7 +6738,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7314,7 +6745,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7322,7 +6752,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7340,7 +6769,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7348,7 +6776,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7356,7 +6783,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7371,11 +6797,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR0E)
                 }
-
                 Return (PR0E)
             }
         }
-
         Device (SAT0)
         {
             Name (_ADR, 0x001F0002)  // _ADR: Address
@@ -7426,7 +6850,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 P5PR,   1
             }
         }
-
         Device (SAT1)
         {
             Name (_ADR, 0x001F0005)  // _ADR: Address
@@ -7477,7 +6900,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 P5PR,   1
             }
         }
-
         Device (SBUS)
         {
             Name (_ADR, 0x001F0003)  // _ADR: Address
@@ -7487,14 +6909,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     ,   2, 
                 I2CE,   1
             }
-
             OperationRegion (SMPB, PCI_Config, 0x20, 0x04)
             Field (SMPB, DWordAcc, NoLock, Preserve)
             {
                     ,   5, 
                 SBAR,   11
             }
-
             OperationRegion (SMBI, SystemIO, ShiftLeft (SBAR, 0x05), 0x10)
             Field (SMBI, ByteAcc, NoLock, Preserve)
             {
@@ -7510,14 +6930,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 RXSA,   8, 
                 SDAT,   16
             }
-
             Method (SSXB, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -7528,17 +6946,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRXB, 1, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -7548,17 +6963,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (DAT0)
                 }
-
                 Return (0xFFFF)
             }
-
             Method (SWRB, 3, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -7570,17 +6982,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRDB, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -7591,17 +7000,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (DAT0)
                 }
-
                 Return (0xFFFF)
             }
-
             Method (SWRW, 3, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -7614,17 +7020,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRDW, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -7635,17 +7038,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Or (HSTS, 0xFF, HSTS)
                     Return (Or (ShiftLeft (DAT0, 0x08), DAT1))
                 }
-
                 Return (Ones)
             }
-
             Method (SBLW, 4, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Arg3, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -7662,13 +7062,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Decrement (Local0)
                         Stall (0x32)
                     }
-
                     If (LNot (Local0))
                     {
                         KILL ()
                         Return (Zero)
                     }
-
                     Store (0x80, HSTS)
                     Increment (Local1)
                     If (LGreater (SizeOf (Arg2), Local1))
@@ -7676,16 +7074,13 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (DerefOf (Index (Arg2, Local1)), HBDR)
                     }
                 }
-
                 If (COMP ())
                 {
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SBLR, 3, Serialized)
             {
                 Name (TBUF, Buffer (0x0100) {})
@@ -7693,7 +7088,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (Zero)
                 }
-
                 Store (Arg2, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -7705,13 +7099,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Decrement (Local0)
                     Stall (0x32)
                 }
-
                 If (LNot (Local0))
                 {
                     KILL ()
                     Return (Zero)
                 }
-
                 Store (DAT0, Index (TBUF, Zero))
                 Store (0x80, HSTS)
                 Store (One, Local1)
@@ -7723,27 +7115,22 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Decrement (Local0)
                         Stall (0x32)
                     }
-
                     If (LNot (Local0))
                     {
                         KILL ()
                         Return (Zero)
                     }
-
                     Store (HBDR, Index (TBUF, Local1))
                     Store (0x80, HSTS)
                     Increment (Local1)
                 }
-
                 If (COMP ())
                 {
                     Or (HSTS, 0xFF, HSTS)
                     Return (TBUF)
                 }
-
                 Return (Zero)
             }
-
             Method (STRT, 0, Serialized)
             {
                 Store (0xC8, Local0)
@@ -7763,7 +7150,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, Local0)
                     }
                 }
-
                 Store (0x0FA0, Local0)
                 While (Local0)
                 {
@@ -7781,10 +7167,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (Zero)
                     }
                 }
-
                 Return (One)
             }
-
             Method (COMP, 0, Serialized)
             {
                 Store (0x0FA0, Local0)
@@ -7804,10 +7188,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Return (Zero)
             }
-
             Method (KILL, 0, Serialized)
             {
                 Or (HCON, 0x02, HCON)
@@ -7815,7 +7197,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Name (BUFN, Zero)
     Name (MBUF, Buffer (0x1000) {})
     OperationRegion (MDBG, SystemMemory, 0xAF7B9018, 0x00001004)
@@ -7823,13 +7204,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
     {
         MDG0,   32768
     }
-
     Method (DB2H, 1, Serialized)
     {
         SHOW (Arg0)
         MDGC (0x20)
     }
-
     Method (DW2H, 1, Serialized)
     {
         Store (Arg0, Local0)
@@ -7840,7 +7219,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Decrement (BUFN)
         DB2H (Local0)
     }
-
     Method (DD2H, 1, Serialized)
     {
         Store (Arg0, Local0)
@@ -7851,7 +7229,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Decrement (BUFN)
         DW2H (Local0)
     }
-
     Method (MBGS, 1, Serialized)
     {
         Store (SizeOf (Arg0), Local0)
@@ -7864,13 +7241,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Decrement (Local0)
         }
     }
-
     Method (SHOW, 1, Serialized)
     {
         MDGC (NTOC (ShiftRight (Arg0, 0x04)))
         MDGC (NTOC (Arg0))
     }
-
     Method (LINE, 0, Serialized)
     {
         Store (BUFN, Local0)
@@ -7882,7 +7257,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             And (Local0, 0x0F, Local0)
         }
     }
-
     Method (MDGC, 1, Serialized)
     {
         Store (Arg0, Index (MBUF, BUFN))
@@ -7893,7 +7267,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             UP_L (One)
         }
     }
-
     Method (UP_L, 1, Serialized)
     {
         Store (Arg0, Local2)
@@ -7907,7 +7280,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Decrement (Local2)
         }
     }
-
     Method (MOVE, 1, Serialized)
     {
         Store (Arg0, Local4)
@@ -7921,7 +7293,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Increment (Local4)
         }
     }
-
     Method (NTOC, 1, Serialized)
     {
         And (Arg0, 0x0F, Local0)
@@ -7933,10 +7304,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         {
             Add (Local0, 0x37, Local0)
         }
-
         Return (Local0)
     }
-
     Scope (_SB.PCI0)
     {
         Device (PEG0)
@@ -7956,7 +7325,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7964,7 +7332,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7972,7 +7339,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7990,7 +7356,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -7998,7 +7363,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8006,7 +7370,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8021,10 +7384,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR0A)
                 }
-
                 Return (PR0A)
             }
-
             Device (PEGP)
             {
                 Name (_ADR, 0xFFFF)  // _ADR: Address
@@ -8034,14 +7395,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Offset (0x0B), 
                     LNKV,   8
                 }
-
                 Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
                     0x09, 
                     0x04
                 })
             }
-
             Device (VGA)
             {
                 Name (_ADR, Zero)  // _ADR: Address
@@ -8049,28 +7408,23 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (0x0F)
                 }
-
                 Name (_PSC, Zero)  // _PSC: Power State Current
                 Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                 {
                     Store (Zero, _PSC)
                 }
-
                 Method (_PS1, 0, NotSerialized)  // _PS1: Power State 1
                 {
                     Store (One, _PSC)
                 }
-
                 Method (_PS2, 0, NotSerialized)  // _PS2: Power State 2
                 {
                     Store (0x02, _PSC)
                 }
-
                 Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
                 {
                     Store (0x03, _PSC)
                 }
-
                 Name (NDSP, Zero)
                 Name (TGLT, Package (0x06)
                 {
@@ -8087,7 +7441,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         One, 
                         One
                     }, 
-
                     Package (0x0A)
                     {
                         One, 
@@ -8101,7 +7454,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         One, 
                         One
                     }, 
-
                     Package (0x0A)
                     {
                         One, 
@@ -8115,7 +7467,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         One, 
                         One
                     }, 
-
                     Package (0x0A)
                     {
                         One, 
@@ -8129,7 +7480,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         One, 
                         One
                     }, 
-
                     Package (0x0A)
                     {
                         One, 
@@ -8143,7 +7493,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         0x09, 
                         One
                     }, 
-
                     Package (0x0A)
                     {
                         One, 
@@ -8168,17 +7517,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (Zero, _PSC)
                     }
-
                     Method (_PS1, 0, NotSerialized)  // _PS1: Power State 1
                     {
                         Store (One, _PSC)
                     }
-
                     Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
                     {
                         Store (0x03, _PSC)
                     }
-
                     Name (_DCS, 0x1B)  // _DCS: Display Current Status
                     Name (_DGS, Zero)  // _DGS: Display Graphics State
                     Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -8194,7 +7540,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store ("LCD._DSS(0) called", Debug)
                             And (NDSP, 0xFE, NDSP)
                         }
-
                         And (Local0, 0x80000000, Local0)
                         If (LNotEqual (Local0, Zero))
                         {
@@ -8207,7 +7552,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             UDGS ()
                         }
                     }
-
                     Name (BRLV, Package (0x0A)
                     {
                         0x64, 
@@ -8225,7 +7569,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (BRLV)
                     }
-
                     Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
                     {
                         If (ECON)
@@ -8234,20 +7577,17 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 Store (0x07, ^^^^LPCB.EC0.BLVL)
                             }
-
                             Store (^^^^LPCB.EC0.BLVL, Local1)
                         }
                         Else
                         {
                             Store (0x07, Local1)
                         }
-
                         And (Local1, 0x07, Local1)
                         Add (Local1, 0x02, Local1)
                         Store (DerefOf (Index (BRLV, Local1)), Local0)
                         Return (Local0)
                     }
-
                     Method (_BCM, 1, Serialized)  // _BCM: Brightness Control Method
                     {
                         Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -8261,7 +7601,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 Break
                             }
                         }
-
                         Subtract (Local0, 0x02, Local0)
                         While (One)
                         {
@@ -8319,15 +7658,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                 }
                             }
-
                             Break
                         }
-
                         Store (Local0, ^^^^LPCB.EC0.BLVL)
                         FSMI (0x22, One)
                     }
                 }
-
                 Device (CRT)
                 {
                     Name (_ADR, 0x0100)  // _ADR: Address
@@ -8336,17 +7672,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (Zero, _PSC)
                     }
-
                     Method (_PS1, 0, NotSerialized)  // _PS1: Power State 1
                     {
                         Store (One, _PSC)
                     }
-
                     Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
                     {
                         Store (0x03, _PSC)
                     }
-
                     Name (_DCS, 0x1B)  // _DCS: Display Current Status
                     Name (_DGS, Zero)  // _DGS: Display Graphics State
                     Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -8362,7 +7695,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store ("CRT._DSS(0) called", Debug)
                             And (NDSP, 0xFD, NDSP)
                         }
-
                         And (Local0, 0x80000000, Local0)
                         If (LNotEqual (Local0, Zero))
                         {
@@ -8376,7 +7708,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Device (TV)
                 {
                     Name (_ADR, 0x0200)  // _ADR: Address
@@ -8385,17 +7716,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (Zero, _PSC)
                     }
-
                     Method (_PS1, 0, NotSerialized)  // _PS1: Power State 1
                     {
                         Store (One, _PSC)
                     }
-
                     Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
                     {
                         Store (0x03, _PSC)
                     }
-
                     Name (_DCS, 0x1B)  // _DCS: Display Current Status
                     Name (_DGS, Zero)  // _DGS: Display Graphics State
                     Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -8411,7 +7739,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store ("TV_._DSS(0) called", Debug)
                             And (NDSP, 0xFB, NDSP)
                         }
-
                         And (Local0, 0x80000000, Local0)
                         If (LNotEqual (Local0, Zero))
                         {
@@ -8425,7 +7752,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Device (DFP)
                 {
                     Name (_ADR, 0x0210)  // _ADR: Address
@@ -8434,23 +7760,19 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x0210, _ADR)
                         Return (0x0F)
                     }
-
                     Name (_PSC, Zero)  // _PSC: Power State Current
                     Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
                     {
                         Store (Zero, _PSC)
                     }
-
                     Method (_PS1, 0, NotSerialized)  // _PS1: Power State 1
                     {
                         Store (One, _PSC)
                     }
-
                     Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
                     {
                         Store (0x03, _PSC)
                     }
-
                     Name (_DCS, 0x1B)  // _DCS: Display Current Status
                     Name (_DGS, Zero)  // _DGS: Display Graphics State
                     Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
@@ -8466,7 +7788,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store ("DFP._DSS(0) called", Debug)
                             And (NDSP, 0xFB, NDSP)
                         }
-
                         And (Local0, 0x80000000, Local0)
                         If (LNotEqual (Local0, Zero))
                         {
@@ -8482,7 +7803,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Method (_DOD, 0, NotSerialized)  // _DOD: Display Output Devices
                 {
                     Return (Package (0x04)
@@ -8493,7 +7813,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         0x80000210
                     })
                 }
-
                 Method (DRUL, 0, NotSerialized)
                 {
                     USTA ()
@@ -8521,7 +7840,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (Zero)
                     }
                 }
-
                 Method (USTA, 0, Serialized)
                 {
                     Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -8552,11 +7870,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 }
                             }
                         }
-
                         Break
                     }
                 }
-
                 Method (UDGS, 0, NotSerialized)
                 {
                     And (^LCD._DGS, One, Local0)
@@ -8572,7 +7888,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Device (PEG1)
         {
             Name (_ADR, 0x00010001)  // _ADR: Address
@@ -8590,7 +7905,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8598,7 +7912,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8606,7 +7919,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8624,7 +7936,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8632,7 +7943,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8640,7 +7950,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8655,11 +7964,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR02)
                 }
-
                 Return (PR02)
             }
         }
-
         Device (PEG2)
         {
             Name (_ADR, 0x00010002)  // _ADR: Address
@@ -8677,7 +7984,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8685,7 +7991,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8693,7 +7998,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8711,7 +8015,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8719,7 +8022,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8727,7 +8029,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8742,11 +8043,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR03)
                 }
-
                 Return (PR03)
             }
         }
-
         Device (PEG3)
         {
             Name (_ADR, 0x00060000)  // _ADR: Address
@@ -8764,7 +8063,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8772,7 +8070,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8780,7 +8077,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8798,7 +8094,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8806,7 +8101,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8814,7 +8108,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -8829,16 +8122,13 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (AR0B)
                 }
-
                 Return (PR0B)
             }
         }
-
         Device (B0D4)
         {
             Name (_ADR, 0x00040000)  // _ADR: Address
         }
-
         Method (CRBL, 0, NotSerialized)
         {
             Store (Or (PL00, 0x8A00), ^GFX0.BLM0)
@@ -8851,7 +8141,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Store (Or (PL07, 0xE400), ^GFX0.BLM7)
             Store (Zero, ^GFX0.BLMX)
         }
-
         Method (CBRL, 0, NotSerialized)
         {
             And (^GFX0.BCLP, 0xFF, Local0)
@@ -8910,7 +8199,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Method (SBRL, 0, Serialized)
         {
             Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -8980,10 +8268,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Break
             }
-
             Or (^GFX0.BCLP, 0x80000000, ^GFX0.BCLP)
             Store (0x02, ^GFX0.ASLC)
             Store (0x05, Local1)
@@ -8993,7 +8279,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Decrement (Local1)
             }
         }
-
         Device (GFX0)
         {
             Name (_ADR, 0x00020000)  // _ADR: Address
@@ -9001,7 +8286,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 CRBL ()
             }
-
             Method (_DOS, 1, NotSerialized)  // _DOS: Disable Output Switching
             {
                 Store (And (Arg0, 0x07), DSEN)
@@ -9013,7 +8297,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Method (_DOD, 0, Serialized)  // _DOD: Display Output Devices
             {
                 If (CondRefOf (IDAB))
@@ -9027,43 +8310,35 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (SDDL (DIDL), DID1)
                     }
-
                     If (LNotEqual (DDL2, Zero))
                     {
                         Store (SDDL (DDL2), DID2)
                     }
-
                     If (LNotEqual (DDL3, Zero))
                     {
                         Store (SDDL (DDL3), DID3)
                     }
-
                     If (LNotEqual (DDL4, Zero))
                     {
                         Store (SDDL (DDL4), DID4)
                     }
-
                     If (LNotEqual (DDL5, Zero))
                     {
                         Store (SDDL (DDL5), DID5)
                     }
-
                     If (LNotEqual (DDL6, Zero))
                     {
                         Store (SDDL (DDL6), DID6)
                     }
-
                     If (LNotEqual (DDL7, Zero))
                     {
                         Store (SDDL (DDL7), DID7)
                     }
-
                     If (LNotEqual (DDL8, Zero))
                     {
                         Store (SDDL (DDL8), DID8)
                     }
                 }
-
                 If (LEqual (NDID, One))
                 {
                     Name (TMP1, Package (0x01)
@@ -9073,7 +8348,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID1), Index (TMP1, Zero))
                     Return (TMP1)
                 }
-
                 If (LEqual (NDID, 0x02))
                 {
                     Name (TMP2, Package (0x02)
@@ -9085,7 +8359,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID2), Index (TMP2, One))
                     Return (TMP2)
                 }
-
                 If (LEqual (NDID, 0x03))
                 {
                     Name (TMP3, Package (0x03)
@@ -9099,7 +8372,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID3), Index (TMP3, 0x02))
                     Return (TMP3)
                 }
-
                 If (LEqual (NDID, 0x04))
                 {
                     Name (TMP4, Package (0x04)
@@ -9115,7 +8387,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID4), Index (TMP4, 0x03))
                     Return (TMP4)
                 }
-
                 If (LEqual (NDID, 0x05))
                 {
                     Name (TMP5, Package (0x05)
@@ -9133,7 +8404,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID5), Index (TMP5, 0x04))
                     Return (TMP5)
                 }
-
                 If (LEqual (NDID, 0x06))
                 {
                     Name (TMP6, Package (0x06)
@@ -9153,7 +8423,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID6), Index (TMP6, 0x05))
                     Return (TMP6)
                 }
-
                 If (LEqual (NDID, 0x07))
                 {
                     Name (TMP7, Package (0x07)
@@ -9175,7 +8444,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID7), Index (TMP7, 0x06))
                     Return (TMP7)
                 }
-
                 If (LEqual (NDID, 0x08))
                 {
                     Name (TMP8, Package (0x08)
@@ -9199,7 +8467,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Or (0x00010000, DID8), Index (TMP8, 0x07))
                     Return (TMP8)
                 }
-
                 If (LEqual (NDID, 0x09))
                 {
                     If (CondRefOf (HWID))
@@ -9207,13 +8474,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (HWID)
                     }
                 }
-
                 Return (Package (0x01)
                 {
                     0x0400
                 })
             }
-
             Device (DD01)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9227,12 +8492,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID1))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     Return (CDDS (DID1))
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9240,10 +8503,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD1)
                     }
-
                     Return (NDDS (DID1))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9252,7 +8513,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD02)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9266,17 +8526,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID2))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (LIDS, Zero))
                     {
                         Return (Zero)
                     }
-
                     Return (CDDS (DID2))
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9284,10 +8541,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD2)
                     }
-
                     Return (NDDS (DID2))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9295,7 +8550,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (NSTE, CSTE)
                     }
                 }
-
                 Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels
                 {
                     Return (Package (0x0A)
@@ -9312,7 +8566,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         0x64
                     })
                 }
-
                 Method (_BCM, 1, Serialized)  // _BCM: Brightness Control Method
                 {
                     Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -9374,21 +8627,17 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                 }
                             }
-
                             Break
                         }
-
                         AINT (One, Local1)
                         Store (Arg0, BRTL)
                     }
                 }
-
                 Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
                 {
                     Return (BRTL)
                 }
             }
-
             Device (DD03)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9402,7 +8651,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID3))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID3, Zero))
@@ -9414,7 +8662,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID3))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9422,10 +8669,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD3)
                     }
-
                     Return (NDDS (DID3))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9434,7 +8679,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD04)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9448,7 +8692,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID4))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID4, Zero))
@@ -9460,7 +8703,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID4))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9468,10 +8710,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD4)
                     }
-
                     Return (NDDS (DID4))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9480,7 +8720,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD05)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9494,7 +8733,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID5))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID5, Zero))
@@ -9506,7 +8744,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID5))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9514,10 +8751,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD5)
                     }
-
                     Return (NDDS (DID5))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9526,7 +8761,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD06)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9540,7 +8774,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID6))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID6, Zero))
@@ -9552,7 +8785,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID6))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9560,10 +8792,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD6)
                     }
-
                     Return (NDDS (DID6))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9572,7 +8802,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD07)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9586,7 +8815,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID7))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID7, Zero))
@@ -9598,7 +8826,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID7))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9606,10 +8833,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD7)
                     }
-
                     Return (NDDS (DID7))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9618,7 +8843,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Device (DD08)
             {
                 Method (_ADR, 0, Serialized)  // _ADR: Address
@@ -9632,7 +8856,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (And (0xFFFF, DID8))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)  // _DCS: Display Current Status
                 {
                     If (LEqual (DID8, Zero))
@@ -9644,7 +8867,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (CDDS (DID8))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)  // _DGS: Display Graphics State
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -9652,10 +8874,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (NXD8)
                     }
-
                     Return (NDDS (DID8))
                 }
-
                 Method (_DSS, 1, NotSerialized)  // _DSS: Device Set State
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -9664,7 +8884,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Method (SDDL, 1, NotSerialized)
             {
                 Increment (NDID)
@@ -9674,45 +8893,36 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL2, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL3, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL4, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL5, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL6, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL7, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL8, Local0))
                 {
                     Return (Local1)
                 }
-
                 Return (Zero)
             }
-
             Method (CDDS, 1, NotSerialized)
             {
                 Store (And (Arg0, 0x0F0F), Local0)
@@ -9720,50 +8930,40 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (0x1D)
                 }
-
                 If (LEqual (CADL, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL2, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL3, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL4, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL5, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL6, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL7, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL8, Local0))
                 {
                     Return (0x1F)
                 }
-
                 Return (0x1D)
             }
-
             Method (NDDS, 1, NotSerialized)
             {
                 Store (And (Arg0, 0x0F0F), Local0)
@@ -9771,50 +8971,40 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (Zero)
                 }
-
                 If (LEqual (NADL, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL2, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL3, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL4, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL5, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL6, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL7, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL8, Local0))
                 {
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Scope (^^PCI0)
             {
                 OperationRegion (MCHP, PCI_Config, 0x40, 0xC0)
@@ -9825,7 +9015,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Offset (0x62)
                 }
             }
-
             OperationRegion (IGDP, PCI_Config, 0x40, 0xC0)
             Field (IGDP, AnyAcc, NoLock, Preserve)
             {
@@ -9853,7 +9042,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Offset (0xBC), 
                 ASLS,   32
             }
-
             OperationRegion (IGDM, SystemMemory, ASLB, 0x2000)
             Field (IGDM, AnyAcc, NoLock, Preserve)
             {
@@ -9947,7 +9135,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 PHED,   32, 
                 BDDC,   2048
             }
-
             Name (DBTB, Package (0x15)
             {
                 Zero, 
@@ -9979,25 +9166,21 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     0xE4, 
                     0x0140
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
                     0x014D
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
                     0x014D
                 }, 
-
                 Package (0x02)
                 {
                     Zero, 
                     Zero
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
@@ -10018,14 +9201,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, One))
                     {
                         Store (0x0240, PARM)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x04))
                     {
                         And (PARM, 0xEFFF0000, PARM)
@@ -10035,7 +9216,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x05))
                     {
                         Store (IPSC, PARM)
@@ -10047,7 +9227,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x06))
                     {
                         Store (ITVF, PARM)
@@ -10055,7 +9234,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x07))
                     {
                         Store (GIVD, PARM)
@@ -10068,7 +9246,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (One, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0A))
                     {
                         Store (Zero, PARM)
@@ -10076,22 +9253,18 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Or (PARM, 0x03, PARM)
                         }
-
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0B))
                     {
                         Store (KSV0, PARM)
                         Store (KSV1, GESF)
                         Return (SUCC)
                     }
-
                     Store (Zero, GESF)
                     Return (CRIT)
                 }
-
                 Method (SBCB, 0, Serialized)
                 {
                     If (LEqual (GESF, Zero))
@@ -10101,35 +9274,30 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, One))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x03))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x04))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x05))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x06))
                     {
                         Store (And (PARM, 0x0F), ITVF)
@@ -10138,7 +9306,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x07))
                     {
                         If (LEqual (PARM, Zero))
@@ -10150,19 +9317,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 GLID (CLID)
                             }
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x08))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x09))
                     {
                         And (PARM, 0xFF, IBTT)
@@ -10170,7 +9334,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0A))
                     {
                         And (PARM, 0xFF, IPSC)
@@ -10179,13 +9342,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             And (ShiftRight (PARM, 0x08), 0xFF, IPAT)
                             Decrement (IPAT)
                         }
-
                         And (ShiftRight (PARM, 0x14), 0x07, IBIA)
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0B))
                     {
                         And (ShiftRight (PARM, One), One, IF1E)
@@ -10197,19 +9358,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             And (ShiftRight (PARM, 0x11), 0x0F, IDMS)
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x10))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x11))
                     {
                         Store (ShiftLeft (LIDS, 0x08), PARM)
@@ -10217,7 +9375,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x12))
                     {
                         If (And (PARM, One))
@@ -10236,19 +9393,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         {
                             Store (Zero, ISSC)
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x13))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x14))
                     {
                         And (PARM, 0x0F, PAVP)
@@ -10256,55 +9410,45 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     Store (Zero, GESF)
                     Return (SUCC)
                 }
-
                 If (LEqual (GEFC, 0x04))
                 {
                     Store (GBDA (), GXFC)
                 }
-
                 If (LEqual (GEFC, 0x06))
                 {
                     Store (SBCB (), GXFC)
                 }
-
                 Store (Zero, GEFC)
                 Store (One, SCIS)
                 Store (Zero, GSSE)
                 Store (Zero, SCIE)
                 Return (Zero)
             }
-
             Method (PDRD, 0, NotSerialized)
             {
                 If (LNot (DRDY))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LNot (DRDY))
             }
-
             Method (PSTS, 0, NotSerialized)
             {
                 If (LGreater (CSTS, 0x02))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LEqual (CSTS, 0x03))
             }
-
             Method (GNOT, 2, NotSerialized)
             {
                 If (PDRD ())
                 {
                     Return (One)
                 }
-
                 Store (Arg0, CEVT)
                 Store (0x03, CSTS)
                 If (LAnd (LEqual (CHPD, Zero), LEqual (Arg1, Zero)))
@@ -10318,7 +9462,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Notify (GFX0, Arg1)
                     }
                 }
-
                 If (CondRefOf (HNOT))
                 {
                     HNOT (Arg0)
@@ -10327,16 +9470,13 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Notify (GFX0, 0x80)
                 }
-
                 Return (Zero)
             }
-
             Method (GHDS, 1, NotSerialized)
             {
                 Store (Arg0, TIDX)
                 Return (GNOT (One, Zero))
             }
-
             Method (GLID, 1, NotSerialized)
             {
                 If (LEqual (Arg0, One))
@@ -10347,38 +9487,31 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Arg0, CLID)
                 }
-
                 Return (GNOT (0x02, Zero))
             }
-
             Method (GDCK, 1, NotSerialized)
             {
                 Store (Arg0, CDCK)
                 Return (GNOT (0x04, Zero))
             }
-
             Method (PARD, 0, NotSerialized)
             {
                 If (LNot (ARDY))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LNot (ARDY))
             }
-
             Method (AINT, 2, NotSerialized)
             {
                 If (LNot (And (TCHE, ShiftLeft (One, Arg0))))
                 {
                     Return (One)
                 }
-
                 If (PARD ())
                 {
                     Return (One)
                 }
-
                 If (LEqual (Arg0, 0x02))
                 {
                     If (CPFM)
@@ -10403,7 +9536,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 }
                             }
                         }
-
                         If (LEqual (Local0, 0x06))
                         {
                             If (And (Local1, 0x08))
@@ -10422,7 +9554,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 }
                             }
                         }
-
                         If (LEqual (Local0, 0x08))
                         {
                             If (And (Local1, One))
@@ -10446,7 +9577,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         XOr (PFIT, 0x07, PFIT)
                     }
-
                     Or (PFIT, 0x80000000, PFIT)
                     Store (0x04, ASLC)
                 }
@@ -10471,21 +9601,17 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Store (One, ASLE)
                 Return (Zero)
             }
-
             Method (SCIP, 0, NotSerialized)
             {
                 If (LNotEqual (OVER, Zero))
                 {
                     Return (LNot (GSMI))
                 }
-
                 Return (Zero)
             }
-
             Device (^^MEM2)
             {
                 Name (_HID, EisaId ("PNP0C01"))  // _HID: Hardware ID
@@ -10518,10 +9644,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (0x0F)
                     }
-
                     Return (Zero)
                 }
-
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
                     If (LOr (LEqual (And (PNHM, 0x0FFF0FF0), 0x000206A0), LEqual (And (
@@ -10529,11 +9653,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Return (CRS1)
                     }
-
                     Return (CRS2)
                 }
             }
-
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (DRET, Buffer (0x04)
@@ -10552,14 +9674,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (0x02, F0SS)
                         Return (DRET)
                     }
-
                     If (LEqual (Arg2, One))
                     {
                         If (LEqual (^^PEG0.PEGP.LNKV, 0x03))
                         {
                             Return (Zero)
                         }
-
                         Return (One)
                     }
                 }
@@ -10567,7 +9687,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Mutex (LSMI, 0x00)
     OperationRegion (PSMI, SystemIO, 0xB2, 0x02)
     Field (PSMI, ByteAcc, NoLock, Preserve)
@@ -10575,7 +9694,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         VINC,   8, 
         ZEEK,   8
     }
-
     Method (OSMI, 2, NotSerialized)
     {
         Acquire (LSMI, 0xFFFF)
@@ -10586,7 +9704,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Stall (0xFF)
         Release (LSMI)
     }
-
     Method (MSMI, 2, NotSerialized)
     {
         Acquire (LSMI, 0xFFFF)
@@ -10597,7 +9714,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Stall (0xFF)
         Release (LSMI)
     }
-
     Method (HSMI, 2, NotSerialized)
     {
         Acquire (LSMI, 0xFFFF)
@@ -10608,7 +9724,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Stall (0xFF)
         Release (LSMI)
     }
-
     Method (FSMI, 2, NotSerialized)
     {
         Acquire (LSMI, 0xFFFF)
@@ -10619,7 +9734,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Stall (0xFF)
         Release (LSMI)
     }
-
     Method (CSMI, 2, NotSerialized)
     {
         Acquire (LSMI, 0xFFFF)
@@ -10630,7 +9744,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Stall (0xFF)
         Release (LSMI)
     }
-
     Scope (_SB)
     {
         Device (ACAD)
@@ -10647,14 +9760,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (^^PCI0.LPCB.EC0.ACDF, PWRS)
                 }
             }
-
             Method (_PSR, 0, NotSerialized)  // _PSR: Power Source
             {
                 If (ECON)
                 {
                     Store (^^PCI0.LPCB.EC0.ACDF, PWRS)
                 }
-
                 If (PWRS)
                 {
                     Store (One, Local0)
@@ -10664,11 +9775,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Zero, Local0)
                 }
-
                 Return (Local0)
             }
         }
-
         Device (BAT1)
         {
             Name (_HID, EisaId ("PNP0C0A"))  // _HID: Hardware ID
@@ -10741,7 +9850,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (0x0F)
                 }
             }
-
             Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
             {
                 If (LEqual (BIFI, Zero))
@@ -10749,10 +9857,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     UBIF ()
                     Store (One, BIFI)
                 }
-
                 Return (PBIF)
             }
-
             Method (_BIX, 0, NotSerialized)  // _BIX: Battery Information Extended
             {
                 If (LEqual (BIFI, Zero))
@@ -10760,10 +9866,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     UBIX ()
                     Store (One, BIFI)
                 }
-
                 Return (PBIX)
             }
-
             Name (LFCC, 0x1130)
             Method (UBIF, 0, NotSerialized)
             {
@@ -10788,7 +9892,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (0xC8, Index (PBIF, 0x06))
                     }
-
                     If (Local6)
                     {
                         Store ("NiMH", Index (PBIF, 0x0B))
@@ -10797,12 +9900,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store ("LION", Index (PBIF, 0x0B))
                     }
-
                     Store (^^PCI0.LPCB.EC0.MBPN, Index (PBIF, 0x09))
                     Store (^^PCI0.LPCB.EC0.MBMN, Index (PBIF, 0x0C))
                 }
             }
-
             Method (UBIX, 0, NotSerialized)
             {
                 If (ECON)
@@ -10820,7 +9921,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store (0xC8, Index (PBIX, 0x07))
                     }
-
                     Store (^^PCI0.LPCB.EC0.LION, Local6)
                     If (Local6)
                     {
@@ -10830,13 +9930,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     {
                         Store ("LION", Index (PBIX, 0x12))
                     }
-
                     Store (^^PCI0.LPCB.EC0.MCLC, Index (PBIX, 0x08))
                     Store (^^PCI0.LPCB.EC0.MBPN, Index (PBIX, 0x10))
                     Store (^^PCI0.LPCB.EC0.MBMN, Index (PBIX, 0x13))
                 }
             }
-
             Name (RCAP, Zero)
             Method (_BST, 0, NotSerialized)  // _BST: Battery Status
             {
@@ -10848,7 +9946,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Ones, Index (PBST, 0x03))
                     Return (PBST)
                 }
-
                 If (ECON)
                 {
                     Store (^^PCI0.LPCB.EC0.MBCF, Local0)
@@ -10895,24 +9992,20 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, Local7)
                         }
                     }
-
                     And (Local4, 0x04, Local4)
                     If (LEqual (Local4, 0x04))
                     {
                         Or (Local7, Local4, Local7)
                     }
-
                     Store (Local7, Index (PBST, Zero))
                     If (LNot (And (Local1, 0x8000)))
                     {
                         Store (Local1, Index (PBST, 0x02))
                     }
-
                     If (LNot (And (Local2, 0x8000)))
                     {
                         Store (Local2, Index (PBST, 0x03))
                     }
-
                     If (LAnd (Local3, 0x8000))
                     {
                         If (LNotEqual (Local3, 0xFFFF))
@@ -10922,13 +10015,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             And (Local3, 0xFFFF, Local3)
                         }
                     }
-
                     Store (Local3, Index (PBST, One))
                 }
-
                 Return (PBST)
             }
-
             Method (BSTA, 0, NotSerialized)
             {
                 If (ECON)
@@ -10941,7 +10031,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (One, BTCH)
                             Store (Zero, BIFI)
                         }
-
                         Store (One, BTIN)
                     }
                     Else
@@ -10951,18 +10040,15 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (One, BTCH)
                             Store (Zero, BIFI)
                         }
-
                         Store (Zero, BTIN)
                     }
                 }
             }
         }
-
         Device (PWRB)
         {
             Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
         }
-
         Device (BT)
         {
             Name (_HID, EisaId ("TOS6205"))  // _HID: Hardware ID
@@ -10977,7 +10063,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Zero)
                 }
             }
-
             Method (DUSB, 0, NotSerialized)
             {
                 If (ECON)
@@ -10985,7 +10070,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, ^^PCI0.LPCB.EC0.BLTH)
                 }
             }
-
             Method (AUSB, 0, NotSerialized)
             {
                 If (ECON)
@@ -10993,19 +10077,16 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (One, ^^PCI0.LPCB.EC0.BLTH)
                 }
             }
-
             Method (BTPO, 0, NotSerialized)
             {
                 FSMI (0x25, Zero)
                 Store (BTEN, ^^PCI0.LPCB.EC0.BLTH)
             }
-
             Method (BTPF, 0, NotSerialized)
             {
                 FSMI (0x26, Zero)
                 Store (BTEN, ^^PCI0.LPCB.EC0.BLTH)
             }
-
             Method (BTST, 0, NotSerialized)
             {
                 If (ECON)
@@ -11029,7 +10110,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Return (Zero)
             }
         }
-
         Name (FLDS, Zero)
         Device (LID)
         {
@@ -11041,11 +10121,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (Zero, FLDS)
                     Return (One)
                 }
-
                 Store (^^PCI0.LPCB.EC0.LIDS, Local0)
                 Return (Local0)
             }
-
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x0F, 
@@ -11069,7 +10147,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (One, ^^PCI0.LPCB.EC0.WLID)
                 }
             }
-
             Scope (\_GPE)
             {
                 Method (_L0F, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
@@ -11079,7 +10156,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-
         Device (QITR)
         {
             Name (_HID, EisaId ("QCI0701"))  // _HID: Hardware ID
@@ -11094,7 +10170,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Zero)
                 }
             }
-
             Name (VZOK, Zero)
             Name (VALI, Package (0x06)
             {
@@ -11122,54 +10197,45 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                      0x12, 0x34, 0x56, 0x78, 0x90
                 }, 
-
                 Package (0x02)
                 {
                     0x07, 
                     0x09
                 }, 
-
                 0x13572468
             })
             Method (ENAB, 0, NotSerialized)
             {
                 Store (0x02, VZOK)
             }
-
             Method (EVNT, 1, NotSerialized)
             {
                 Store (Arg0, VZOK)
                 Notify (QITR, 0x80)
                 Return (VZOK)
             }
-
             Method (INFO, 0, NotSerialized)
             {
                 Store (0x12, Local0)
                 Return (Local0)
             }
-
             Method (AB00, 0, NotSerialized)
             {
                 Store (0x02, VZOK)
             }
-
             Method (AB11, 1, NotSerialized)
             {
                 Return (VZOK)
             }
-
             Method (AB01, 0, NotSerialized)
             {
                 Store (0x12, Local0)
                 Return (Local0)
             }
-
             Method (BBAA, 0, NotSerialized)
             {
                 Return (BBBB)
             }
-
             Method (SPFC, 6, NotSerialized)
             {
                 Store (Arg0, Index (VALI, Zero))
@@ -11192,7 +10258,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (Local5, Index (VALO, 0x05))
                 Return (VALO)
             }
-
             Method (AB66, 6, NotSerialized)
             {
                 Store (Arg0, Index (VALI, Zero))
@@ -11215,7 +10280,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (Local5, Index (VALO, 0x05))
                 Return (VALO)
             }
-
             Name (HMBB, Buffer (0x1C) {})
             CreateField (HMBB, Zero, 0x60, HMPN)
             CreateField (HMBB, 0x60, 0x60, HMMN)
@@ -11244,13 +10308,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (0x05, Index (HMBT, 0x05))
                 Return (HMBT)
             }
-
             Method (HMB2, 0, NotSerialized)
             {
                 Return (Zero)
             }
         }
-
         Device (TVAP)
         {
             Name (_HID, EisaId ("TOS1900"))  // _HID: Hardware ID
@@ -11266,7 +10328,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Name (HM08, Zero)
                 Name (HM09, Zero)
             }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (LGreaterEqual (OSYS, 0x07D6))
@@ -11278,7 +10339,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Zero)
                 }
             }
-
             Name (_DDN, "VALZeneral")  // _DDN: DOS Device Name
             Name (VZOK, Zero)
             Name (VBFG, 0x11)
@@ -11294,7 +10354,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (^^PCI0.LPCB.EC0.RFST, Local0)
                 Store (Local0, VRFS)
             }
-
             Method (EVNT, 1, NotSerialized)
             {
                 While (VZOK)
@@ -11313,14 +10372,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             Store (Zero, VALF)
                             Return (Zero)
                         }
-
                         Sleep (0x64)
                         Add (VALF, One, VALF)
                     }
                 }
                 Return (Zero)
             }
-
             Name (OA30, Buffer (0x34) {})
             CreateField (OA30, Zero, 0x20, OA01)
             CreateField (OA30, 0x20, 0x20, OA02)
@@ -11353,7 +10410,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 Return (Zero)
             }
-
             Method (HMB1, 0, NotSerialized)
             {
                 If (^^PCI0.LPCB.EC0.MBTS)
@@ -11377,17 +10433,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (HMBT)
                 }
             }
-
             Method (HMB2, 0, NotSerialized)
             {
                 Return (Zero)
             }
-
             Method (ODLS, 0, NotSerialized)
             {
                 Return (One)
             }
-
             Method (ODLT, 0, NotSerialized)
             {
                 If (LEqual (ODDT, Zero))
@@ -11405,7 +10458,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     })
                 }
             }
-
             Name (ODIN, Buffer (0x10) {})
             CreateField (ODIN, Zero, 0x10, ODVI)
             CreateField (ODIN, 0x10, 0x10, ODDI)
@@ -11425,7 +10477,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (Zero, ODZO)
                 Return (ODIN)
             }
-
             Method (INFO, 0, Serialized)
             {
                 If (LEqual (VZOK, 0x02))
@@ -11583,7 +10634,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Name (VALI, Package (0x06)
             {
                 Ones, 
@@ -11835,40 +10885,33 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Return (Zero)
                 }
-
                 If (LNotEqual (DerefOf (Index (Arg0, One)), DerefOf (Index (
                     Arg1, One))))
                 {
                     Return (Zero)
                 }
-
                 If (LNotEqual (DerefOf (Index (Arg0, 0x02)), DerefOf (Index (
                     Arg1, 0x02))))
                 {
                     Return (Zero)
                 }
-
                 If (LNotEqual (DerefOf (Index (Arg0, 0x03)), DerefOf (Index (
                     Arg1, 0x03))))
                 {
                     Return (Zero)
                 }
-
                 If (LNotEqual (DerefOf (Index (Arg0, 0x04)), DerefOf (Index (
                     Arg1, 0x04))))
                 {
                     Return (Zero)
                 }
-
                 If (LNotEqual (DerefOf (Index (Arg0, 0x05)), DerefOf (Index (
                     Arg1, 0x05))))
                 {
                     Return (Zero)
                 }
-
                 Return (One)
             }
-
             Method (SPFC, 6, Serialized)
             {
                 Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
@@ -11890,7 +10933,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (One, ^^PCI0.LPCB.EC0.POLG)
                 }
-
                 Store (ToInteger (Arg1), Local0)
                 And (Local0, 0x00FFFFFF, Local0)
                 Store (ToInteger (Arg1), Local1)
@@ -12046,7 +11088,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                 {
                                     Store (One, Index (VALO, 0x02))
                                 }
-
                                 Store (One, Index (VALO, Zero))
                                 Store (Zero, Index (VALO, 0x04))
                             }
@@ -12232,7 +11273,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                 OSMI (0x22, 0x10)
                                                             }
                                                         }
-
                                                         XOr (ShiftRight (Local0, 0x03, Local1), One, Local1)
                                                         Store (Local1, ^^PCI0.LPCB.EC0.HEUE)
                                                     }
@@ -12248,7 +11288,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                             {
                                                                 And (VBFG, 0x0F, VBFG)
                                                             }
-
                                                             Store (VBFG, Index (VALO, 0x02))
                                                         }
                                                     }
@@ -12374,7 +11413,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                             }
                                                                         }
                                                                     }
-
                                                                     Break
                                                                 }
                                                             }
@@ -12457,7 +11495,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                         Store (DerefOf (Index (PCBL, Local2)), Local1)
                                                                         Store (Divide (Multiply (Local1, 0x64), 0xFF, ), Local1)
                                                                     }
-
                                                                     While (One)
                                                                     {
                                                                         Store (ToInteger (Local2), T_1)
@@ -12514,12 +11551,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                 }
                                                                             }
                                                                         }
-
                                                                         Break
                                                                     }
                                                                 }
                                                             }
-
                                                             Store (0xE000, Index (VALO, 0x03))
                                                         }
                                                         Else
@@ -12612,7 +11647,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                         {
                                                                                             Store (Zero, Local0)
                                                                                         }
-
                                                                                         If (Local0)
                                                                                         {
                                                                                             Store (^^PCI0.LPCB.EC0.MBVG, Local0)
@@ -12852,7 +11886,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                 {
                                                                                                     Store (Zero, Local0)
                                                                                                 }
-
                                                                                                 If (Local0)
                                                                                                 {
                                                                                                     Store (^^PCI0.LPCB.EC0.ACCA, Local1)
@@ -12868,7 +11901,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                     {
                                                                                                         Store (^^PCI0.LPCB.EC0.RG59, Local5)
                                                                                                     }
-
                                                                                                     Store (^^PCI0.LPCB.EC0.ACCU, Local6)
                                                                                                     Or (ShiftLeft (Or (ShiftLeft (Or (ShiftLeft (Local5, 0x08), Local4
                                                                                                         ), 0x08), Local3), 0x08), Local2, Index (VALO, 0x02
@@ -12938,12 +11970,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                     Store (^^PCI0.LPCB.EC0.MCUR, Local2)
                                                                                                                     Subtract (0xFFFF, Local2, Index (VALO, 0x02))
                                                                                                                 }
-
                                                                                                                 If (LAnd (LEqual (PE00, Zero), LEqual (PE01, One)))
                                                                                                                 {
                                                                                                                     Store (0xFFFF, Index (VALO, 0x02))
                                                                                                                 }
-
                                                                                                                 Store (^^PCI0.LPCB.EC0.MTEM, Local0)
                                                                                                                 Subtract (Local0, 0x0AAC, Local0)
                                                                                                                 Divide (Local0, 0x0A, Local0, Index (VALO, 0x03))
@@ -13140,7 +12170,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                     Store (0x8300, Index (VALO, Zero))
                                                                                                                 }
                                                                                                             }
-
                                                                                                             If (LNotEqual (ToInteger (Arg3), Zero))
                                                                                                             {
                                                                                                                 Store (0x8300, Index (VALO, Zero))
@@ -13575,7 +12604,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                             {
                                                                                                                                                 Store (One, OAFG)
                                                                                                                                             }
-
                                                                                                                                             Store (Zero, OADK)
                                                                                                                                         }
                                                                                                                                     }
@@ -13905,7 +12933,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                                             {
                                                                                                                                                                                                 Store (0x00640001, Index (VALO, 0x03))
                                                                                                                                                                                             }
-
                                                                                                                                                                                             If (LEqual (^^PCI0.LPCB.EC0.MBTS, One))
                                                                                                                                                                                             {
                                                                                                                                                                                                 Store (0x000A0004, Index (VALO, 0x04))
@@ -14019,7 +13046,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                             {
                                                                                                                                                                                 Store (Zero, Index (VALO, 0x02))
                                                                                                                                                                             }
-
                                                                                                                                                                             Store (0xFFFE, Index (VALO, 0x03))
                                                                                                                                                                         }
                                                                                                                                                                         Else
@@ -14060,7 +13086,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                                 {
                                                                                                                                                                                     Store (One, Index (VALO, 0x02))
                                                                                                                                                                                 }
-
                                                                                                                                                                                 Store (0x0FFF, Index (VALO, 0x03))
                                                                                                                                                                                 Store (One, Index (VALO, 0x04))
                                                                                                                                                                             }
@@ -14181,7 +13206,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                                                         }
                                                                                                                                                                                                     }
                                                                                                                                                                                                 }
-
                                                                                                                                                                                                 Store (Zero, Local1)
                                                                                                                                                                                                 Or (PE00, Or (ShiftLeft (PE01, One), ShiftLeft (PE02, 0x02
                                                                                                                                                                                                     )), Local1)
@@ -14224,7 +13248,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                                                                 Store (0x07, OWNS)
                                                                                                                                                                                                                 HSMI (0x20, One)
                                                                                                                                                                                                             }
-
                                                                                                                                                                                                             Store (Zero, Index (VALO, Zero))
                                                                                                                                                                                                         }
                                                                                                                                                                                                     }
@@ -14259,7 +13282,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                                                                                                                                                 {
                                                                                                                                                                                                     OSMI (0x14, One)
                                                                                                                                                                                                 }
-
                                                                                                                                                                                                 If (LOr (LOr (LEqual (ToInteger (Arg3), Zero), LEqual (ToInteger (
                                                                                                                                                                                                     Arg3), One)), LEqual (ToInteger (Arg3), 0x02)))
                                                                                                                                                                                                 {
@@ -14315,11 +13337,9 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Return (VALO)
             }
         }
-
         Device (QWMI)
         {
             Name (_HID, "PNP0C14")  // _HID: Hardware ID
@@ -14391,7 +13411,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (One, QMNV)
                 Return (VERB)
             }
-
             Method (WSAA, 2, NotSerialized)
             {
                 Store (Arg1, FBUF)
@@ -14401,250 +13420,200 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     RQ01 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x02))
                 {
                     RQ02 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x03))
                 {
                     RQ03 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x04))
                 {
                     RQ04 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x06))
                 {
                     RQ06 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x07))
                 {
                     RQ07 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x08))
                 {
                     RQ08 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x09))
                 {
                     RQ09 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x0A))
                 {
                     RQ0A (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x0B))
                 {
                     RQ0B (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x0C))
                 {
                     RQ0C (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x12))
                 {
                     RQ12 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x13))
                 {
                     RQ13 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x15))
                 {
                     RQ15 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x18))
                 {
                     RQ18 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x20))
                 {
                     RQ19 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x21))
                 {
                     RQ1A (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x22))
                 {
                     RQ1B (Arg0)
                 }
-
                 If (LEqual (RCOD, 0xF0))
                 {
                     RQF0 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x19))
                 {
                     RQ1C (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x23))
                 {
                     RQ1D (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x24))
                 {
                     RQ1E (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x25))
                 {
                     RQ25 (Arg0)
                 }
-
                 If (LEqual (RCOD, 0x26))
                 {
                     RQ26 (Arg0)
                 }
-
                 Store (QBUF, RBUF)
             }
-
             Method (WQAB, 1, NotSerialized)
             {
                 Return (RBUF)
             }
-
             Method (WSAB, 2, NotSerialized)
             {
                 If (LEqual (RCOD, One))
                 {
                     RS01 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x02))
                 {
                     RS02 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x03))
                 {
                     RS03 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x04))
                 {
                     RS04 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x06))
                 {
                     RS06 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x07))
                 {
                     RS07 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x08))
                 {
                     RS08 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x09))
                 {
                     RS09 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x0A))
                 {
                     RS0A (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x0B))
                 {
                     RS0B (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x0C))
                 {
                     RS0C (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x12))
                 {
                     RS12 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x15))
                 {
                     RS15 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x18))
                 {
                     RS18 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x20))
                 {
                     RS19 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x21))
                 {
                     RS1A (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x22))
                 {
                     RS1B (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0xF0))
                 {
                     RSF0 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x19))
                 {
                     RS1C (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x23))
                 {
                     RS1D (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x24))
                 {
                     RS1E (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x25))
                 {
                     RS25 (Arg0, Arg1)
                 }
-
                 If (LEqual (RCOD, 0x26))
                 {
                     RS26 (Arg0, Arg1)
                 }
-
                 Store (QBUF, RBUF)
             }
-
             Method (RQ01, 1, NotSerialized)
             {
                 If (LEqual (FCOD, 0x02))
@@ -14652,12 +13621,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     OSMI (One, Zero)
                     Store (OWNS, Q512)
                 }
-
                 If (LEqual (FCOD, 0x05))
                 {
                     Store (SFAI, Q000)
                 }
-
                 If (LEqual (FCOD, 0x04))
                 {
                     If (LEqual (SFLG, Zero))
@@ -14670,7 +13637,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Method (RS01, 2, NotSerialized)
             {
                 Store (Arg1, Q512)
@@ -14690,25 +13656,21 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Store (Zero, Q000)
                     }
                 }
-
                 If (LEqual (FCOD, One))
                 {
                     OSMI (One, 0x02)
                 }
-
                 If (LEqual (FCOD, 0x03))
                 {
                     Store (One, OG13)
                     OSMI (One, 0x03)
                 }
-
                 If (LEqual (FCOD, 0x05))
                 {
                     Store (OWNS, Q512)
                     Store (Q000, SFAI)
                 }
             }
-
             Method (RQ02, 1, NotSerialized)
             {
                 If (LEqual (FCOD, 0x02))
@@ -14716,12 +13678,10 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     OSMI (0x02, Zero)
                     Store (OWNS, Q512)
                 }
-
                 If (LEqual (FCOD, 0x05))
                 {
                     Store (UFAI, Q000)
                 }
-
                 If (LEqual (FCOD, 0x04))
                 {
                     If (LEqual (UFLG, Zero))
@@ -14734,7 +13694,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Method (RS02, 2, NotSerialized)
             {
                 Store (Arg1, OWNS)
@@ -14745,24 +13704,20 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OWNS, Q512)
                     Store (Q000, UFLG)
                 }
-
                 If (LEqual (FCOD, One))
                 {
                     OSMI (0x02, 0x02)
                 }
-
                 If (LEqual (FCOD, 0x03))
                 {
                     OSMI (0x02, 0x03)
                 }
-
                 If (LEqual (FCOD, 0x05))
                 {
                     Store (OWNS, Q512)
                     Store (Q000, UFAI)
                 }
             }
-
             Method (RQ03, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14774,13 +13729,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG04, Q000)
                 }
             }
-
             Method (RS03, 2, NotSerialized)
             {
                 Store (Arg1, OG04)
                 OSMI (0x03, One)
             }
-
             Method (RQ04, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14797,13 +13750,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OWNS, Q512)
                 }
             }
-
             Method (RS04, 2, NotSerialized)
             {
                 Store (Arg1, OWNS)
                 OSMI (0x04, One)
             }
-
             Method (RQ06, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14815,13 +13766,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG05, Q000)
                 }
             }
-
             Method (RS06, 2, NotSerialized)
             {
                 Store (Arg1, OG05)
                 OSMI (0x06, One)
             }
-
             Method (RQ07, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14833,13 +13782,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG00, Q000)
                 }
             }
-
             Method (RS07, 2, NotSerialized)
             {
                 Store (Arg1, OG00)
                 OSMI (0x07, One)
             }
-
             Method (RQ08, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14851,56 +13798,46 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG01, Q000)
                 }
             }
-
             Method (RS08, 2, NotSerialized)
             {
                 Store (Arg1, OG01)
                 OSMI (0x08, One)
             }
-
             Method (RQ09, 1, NotSerialized)
             {
                 OSMI (Zero, Zero)
                 Store (OWNS, Q512)
                 Store (Zero, QZZZ)
             }
-
             Method (RS09, 2, NotSerialized)
             {
                 Store (Arg1, OWNS)
                 OSMI (Zero, One)
             }
-
             Method (RQ0A, 1, NotSerialized)
             {
                 Store (OG15, Q000)
             }
-
             Method (RS0A, 2, NotSerialized)
             {
             }
-
             Method (RQ0B, 1, NotSerialized)
             {
                 Store (OG13, Q000)
             }
-
             Method (RS0B, 2, NotSerialized)
             {
                 Store (Arg1, OG13)
                 OSMI (0x0A, One)
             }
-
             Method (RQ0C, 1, NotSerialized)
             {
                 OSMI (0x0B, Zero)
                 Store (OWNS, Q512)
             }
-
             Method (RS0C, 2, NotSerialized)
             {
             }
-
             Method (RQ12, 1, NotSerialized)
             {
                 OSMI (0x10, Zero)
@@ -14914,7 +13851,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Zero, Q005)
                 }
-
                 If (FKSF)
                 {
                     Store (One, Q019)
@@ -14923,7 +13859,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Zero, Q019)
                 }
-
                 If (LAnd (MD14, MD00))
                 {
                     Store (Zero, Q020)
@@ -14933,17 +13868,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (One, Q020)
                 }
             }
-
             Method (RS12, 2, NotSerialized)
             {
             }
-
             Method (RQ13, 1, NotSerialized)
             {
                 OSMI (0x12, Zero)
                 Store (DVDI, QL20)
             }
-
             Method (RQ15, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14955,13 +13887,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG02, Q000)
                 }
             }
-
             Method (RS15, 2, NotSerialized)
             {
                 Store (Arg1, OG02)
                 OSMI (0x14, One)
             }
-
             Method (RQ18, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14973,13 +13903,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG12, Q000)
                 }
             }
-
             Method (RS18, 2, NotSerialized)
             {
                 Store (Arg1, OG12)
                 OSMI (0x1B, One)
             }
-
             Method (RQ19, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -14991,13 +13919,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG07, Q000)
                 }
             }
-
             Method (RS19, 2, NotSerialized)
             {
                 Store (Arg1, OG07)
                 OSMI (0x18, One)
             }
-
             Method (RQ1A, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -15009,13 +13935,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG08, Q000)
                 }
             }
-
             Method (RS1A, 2, NotSerialized)
             {
                 Store (Arg1, OG08)
                 OSMI (0x19, One)
             }
-
             Method (RQ1B, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -15027,17 +13951,14 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG09, Q000)
                 }
             }
-
             Method (RS1B, 2, NotSerialized)
             {
                 Store (Arg1, OG09)
                 OSMI (0x1A, One)
             }
-
             Method (RQF0, 1, NotSerialized)
             {
             }
-
             Method (RSF0, 2, NotSerialized)
             {
                 Store (Arg1, Q512)
@@ -15046,14 +13967,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     OSMI (0x17, One)
                 }
             }
-
             Method (RQ1C, 1, NotSerialized)
             {
                 Store (0x08, Q000)
                 Store (^^PCI0.LPCB.EC0.BLVL, Q001)
                 Store (One, Q002)
             }
-
             Method (RS1C, 2, NotSerialized)
             {
                 Store (Arg1, Q000)
@@ -15112,13 +14031,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
-
             Method (RQ1D, 1, NotSerialized)
             {
                 Store (Zero, Q000)
                 Store (TMEU, Q001)
             }
-
             Method (RS1D, 2, NotSerialized)
             {
                 Store (Arg1, Q512)
@@ -15132,7 +14049,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     OSMI (0x17, 0x06)
                 }
             }
-
             Method (RQ1E, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -15144,13 +14060,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (OG17, Q000)
                 }
             }
-
             Method (RS1E, 2, NotSerialized)
             {
                 Store (ToInteger (Arg1), OG17)
                 OSMI (0x1D, One)
             }
-
             Method (RQ25, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -15162,13 +14076,11 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (FKCS, Q000)
                 }
             }
-
             Method (RS25, 2, NotSerialized)
             {
                 Store (ToInteger (Arg1), FKCS)
                 OSMI (0x22, One)
             }
-
             Method (RQ26, 1, NotSerialized)
             {
                 If (LEqual (FCOD, One))
@@ -15180,7 +14092,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Store (XHCM, Q000)
                 }
             }
-
             Method (RS26, 2, NotSerialized)
             {
                 Store (ToInteger (Arg1), Local0)
@@ -15192,10 +14103,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (Zero, XHCM)
                 }
-
                 OSMI (0x23, One)
             }
-
             Name (WQBA, Buffer (0x02C0)
             {
                 /* 0000 */   0x46, 0x4F, 0x4D, 0x42, 0x01, 0x00, 0x00, 0x00,
@@ -15288,7 +14197,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 /* 02B8 */   0x03, 0xA1, 0xF1, 0x3C, 0x80, 0xB0, 0xFF, 0x3F
             })
         }
-
         Name (HS4S, Zero)
         Name (HS4F, Zero)
         Name (HSRF, Zero)
@@ -15301,14 +14209,12 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Store (Arg0, HS4S)
                 Store (One, HSRF)
             }
-
             Method (RSSS, 0, NotSerialized)
             {
                 Store (Zero, HDPI)
                 Sleep (0x05)
                 Store (One, HDPI)
             }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (MD06)
@@ -15327,7 +14233,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Return (Zero)
                 }
             }
-
             Name (HPNA, Zero)
             Scope (\_GPE)
             {
@@ -15356,7 +14261,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         }
                     }
                 }
-
                 Method (_L1D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
                 {
                     XOr (PLHL, One, PLHL)
@@ -15375,7 +14279,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
         }
     }
-
     Name (_S0, Package (0x04)  // _S0_: S0 System State
     {
         Zero, 
@@ -15393,7 +14296,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Zero
         })
     }
-
     If (SS3)
     {
         Name (_S3, Package (0x04)  // _S3_: S3 System State
@@ -15404,7 +14306,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Zero
         })
     }
-
     If (SS4)
     {
         Name (_S4, Package (0x04)  // _S4_: S4 System State
@@ -15415,7 +14316,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Zero
         })
     }
-
     Name (_S5, Package (0x04)  // _S5_: S5 System State
     {
         0x07, 
@@ -15423,7 +14323,6 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Zero, 
         Zero
     })
-
     Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
@@ -15455,4 +14354,3 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
         Return (Zero)
     }
 }
-
