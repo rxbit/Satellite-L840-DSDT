@@ -1,0 +1,63 @@
+------[ AIDA64 v3.20.2600 ]------
+
+------[ Microsoft Windows 8.1 Professional with Media Center 6.3.9600.16404 (64-bit) ]------
+
+------[ Motherboard Info ]------
+
+Motherboard ID      : <DMI>
+Motherboard Model   : Toshiba Satellite L840
+Motherboard Chipset : Intel Panther Point HM76, Intel Ivy Bridge
+
+DMI MB Manufacturer : Type2 - Board Vendor Name1
+DMI MB Product      : Type2 - Board Product Name1
+DMI MB Version      : Type2 - Board Version
+DMI MB Serial       : Type2 - Board Serial Number
+DMI SYS Manufacturer: TOSHIBA
+DMI SYS Product     : Satellite L840
+DMI SYS Version     : PSK8LH-010002
+DMI SYS Serial      : 5C178660W
+DMI BIOS Version    : 6.00
+
+------[ Batteries ]------
+
+<DESC>Microsoft ACPI 兼容的控制方法电池</DESC><DEVPATH>\\?\acpi#pnp0c0a#1#{72631e54-78a4-11d0-bcf7-00aa00b7b32a}</DEVPATH><INSTANCE>ACPI\PNP0C0A\1</INSTANCE><BUSNUM>00000000</BUSNUM><ADDR></ADDR>
+
+------[ Human Interface Devices ]------
+
+<DESC>符合 HID 标准的用户控制设备</DESC><DEVPATH>\\?\hid#vid_046d&pid_c31c&mi_01&col01#9&17dcace9&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\VID_046D&PID_C31C&MI_01&COL01\9&17DCACE9&0&0000</INSTANCE><BUSNUM>00000002</BUSNUM><ADDR>00000003</ADDR>
+<DESC>符合 HID 标准的系统控制器</DESC><DEVPATH>\\?\hid#vid_046d&pid_c31c&mi_01&col02#9&17dcace9&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\VID_046D&PID_C31C&MI_01&COL02\9&17DCACE9&0&0001</INSTANCE><BUSNUM>00000002</BUSNUM><ADDR>00000003</ADDR>
+<DESC>符合 HID 标准的用户控制设备</DESC><DEVPATH>\\?\hid#vid_046d&pid_c31c&mi_01&col03#9&17dcace9&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\VID_046D&PID_C31C&MI_01&COL03\9&17DCACE9&0&0002</INSTANCE><BUSNUM>00000002</BUSNUM><ADDR>00000003</ADDR>
+<DESC>符合 HID 标准的用户控制设备</DESC><DEVPATH>\\?\hid#tossyshid&col01#4&a9cfd0e&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\TOSSYSHID&COL01\4&A9CFD0E&0&0000</INSTANCE><BUSNUM>00000000</BUSNUM><ADDR></ADDR>
+<DESC>符合 HID 标准的无线通信控制</DESC><DEVPATH>\\?\hid#tossyshid&col02#4&a9cfd0e&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\TOSSYSHID&COL02\4&A9CFD0E&0&0001</INSTANCE><BUSNUM>00000000</BUSNUM><ADDR></ADDR>
+<DESC>HID Keyboard Device</DESC><DEVPATH>\\?\hid#vid_046d&pid_c31c&mi_00#9&1920a4&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\VID_046D&PID_C31C&MI_00\9&1920A4&0&0000</INSTANCE><BUSNUM>00000001</BUSNUM><ADDR>00000002</ADDR>
+<DESC>符合 HID 标准的用户控制设备</DESC><DEVPATH>\\?\hid#tossyshid&col03#4&a9cfd0e&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\TOSSYSHID&COL03\4&A9CFD0E&0&0002</INSTANCE><BUSNUM>00000000</BUSNUM><ADDR></ADDR>
+<DESC>HID-compliant mouse</DESC><DEVPATH>\\?\hid#vid_093a&pid_2521#8&26cd280b&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}</DEVPATH><INSTANCE>HID\VID_093A&PID_2521\8&26CD280B&0&0000</INSTANCE><BUSNUM>00000003</BUSNUM><ADDR>00000003</ADDR>
+
+------[ BatteryList ]------
+
+<DESC>Microsoft ACPI 兼容的控制方法电池</DESC><DEVPATH>\\?\acpi#pnp0c0a#1#{72631e54-78a4-11d0-bcf7-00aa00b7b32a}</DEVPATH><INSTANCE>ACPI\PNP0C0A\1</INSTANCE><BUSNUM>00000000</BUSNUM><ADDR></ADDR>
+
+------[ Battery #0 ]------
+
+*** Smart Battery Interface ***
+
+BatteryDeviceName      = PA5024U-1BRS
+BatteryManufactureName = LGC
+BatterySerialNumber    =      
+BatteryUniqueID        =      LGCPA5024U-1BRS
+
+BatteryInformation:
+- Technology          = 1
+- Chemistry           = LION
+- Capabilities        = 80000000h
+- RelativeCapacity    = 0
+- DesignedCapacity    = 4400
+- FullChargedCapacity = 3824
+- CriticalBias        = 0
+- CycleCount          = 76
+
+BatteryStatus:
+- PowerState = 00000001h
+- Capacity   = 3824
+- Voltage    = 12325
+- Rate       = 0
