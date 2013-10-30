@@ -103,7 +103,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
             Store (CPPC, \_PR.CPU0._PPC)
             Store (CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -113,7 +113,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
             Return (Local0)
         }
 
-        Method (CPDC, 1, NotSerialized)
+        Method (CPDC, 1, Serialized)
         {
             CreateDWordField (Arg0, Zero, REVS)
             CreateDWordField (Arg0, 0x04, SIZE)
@@ -132,7 +132,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
                 }, REVS, SIZE, Local2))
         }
 
-        Method (COSC, 4, NotSerialized)
+        Method (COSC, 4, Serialized)
         {
             CreateDWordField (Arg3, Zero, STS0)
             CreateDWordField (Arg3, 0x04, CAP0)
@@ -165,7 +165,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
             Return (Arg3)
         }
 
-        Method (GCAP, 1, NotSerialized)
+        Method (GCAP, 1, Serialized)
         {
             CreateDWordField (Arg0, Zero, STS0)
             CreateDWordField (Arg0, 0x04, CAP0)
@@ -205,7 +205,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -245,7 +245,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
             Return (Zero)
         }
 
-        Method (APCT, 0, NotSerialized)
+        Method (APCT, 0, Serialized)
         {
             If (LAnd (And (CFGD, 0x2E), LNot (And (SDTL, 0x20
                 ))))
@@ -257,7 +257,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
             }
         }
 
-        Method (APPT, 0, NotSerialized)
+        Method (APPT, 0, Serialized)
         {
             If (LAnd (And (CFGD, One), LNot (And (SDTL, 0x10
                 ))))
@@ -276,7 +276,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -323,7 +323,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -370,7 +370,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -417,7 +417,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -464,7 +464,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
@@ -511,7 +511,7 @@ DefinitionBlock ("acpi_ssdt1.aml", "SSDT", 1, "INSYDE", "CR CRB  ", 0x00003000)
         {
             Store (\_PR.CPU0.CPDC (Arg0), Local0)
             GCAP (Local0)
-            Return (Local0)
+            Return (Zero)
         }
 
         Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities

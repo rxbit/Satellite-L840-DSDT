@@ -1503,7 +1503,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Add (Subtract (M1MX, M1MN), One, M1LN)
                 If (LOr (LEqual (MM64, Zero), LLessEqual (OSYS, 0x07D3)))
                 {
-                    CreateDWordField (BUF0, \_SB.PCI0._Y0F._LEN, MSLN)  // _LEN: Length
+                    CreateQWordField (BUF0, \_SB.PCI0._Y0F._LEN, MSLN)  // _LEN: Length
                     Store (Zero, MSLN)
                 }
                 Else
@@ -4393,7 +4393,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Return (Local0)
         }
 
-        Method (SPIO, 3, NotSerialized)
+        Method (SPIO, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
             {
@@ -4447,7 +4447,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Return (PBUF)
         }
 
-        Method (SDMA, 3, NotSerialized)
+        Method (SDMA, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
             {
@@ -4764,7 +4764,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -4773,8 +4773,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -4793,7 +4793,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -4806,7 +4806,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -4852,7 +4852,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -4861,8 +4861,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -4881,7 +4881,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -4894,7 +4894,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -4940,7 +4940,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -4949,8 +4949,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -4969,7 +4969,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -4982,7 +4982,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -5028,7 +5028,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5037,8 +5037,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5057,7 +5057,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -5070,7 +5070,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -5251,7 +5251,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5260,8 +5260,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5280,7 +5280,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -5293,7 +5293,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -5339,7 +5339,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
                                         /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
@@ -5348,8 +5348,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5368,7 +5368,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, One))
+                                        If (LEqual (T_0, One))
                                         {
                                             If (LEqual (SDGV, 0xFF))
                                             {
@@ -5381,7 +5381,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Return (SDGV)
                                             }
@@ -5964,7 +5964,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             Method (_EJ0, 1, NotSerialized)  // _EJx: Eject Device
             {
                 P8XH (Zero, 0xED, Zero)
-                Return (One)
+                Return (Zero)
             }
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -8250,7 +8250,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
                     Method (_BCM, 1, Serialized)  // _BCM: Brightness Control Method
                     {
-                        Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                         Store (SizeOf (BRLV), Local0)
                         While (Local0)
                         {
@@ -8265,50 +8265,50 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Subtract (Local0, 0x02, Local0)
                         While (One)
                         {
-                            Store (ToInteger (Local0), _T_0)
-                            If (LEqual (_T_0, Zero))
+                            Store (ToInteger (Local0), T_0)
+                            If (LEqual (T_0, Zero))
                             {
                                 Store (PL00, OWNS)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, One))
+                                If (LEqual (T_0, One))
                                 {
                                     Store (PL01, OWNS)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x02))
+                                    If (LEqual (T_0, 0x02))
                                     {
                                         Store (PL02, OWNS)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x03))
+                                        If (LEqual (T_0, 0x03))
                                         {
                                             Store (PL03, OWNS)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x04))
+                                            If (LEqual (T_0, 0x04))
                                             {
                                                 Store (PL04, OWNS)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x05))
+                                                If (LEqual (T_0, 0x05))
                                                 {
                                                     Store (PL05, OWNS)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x06))
+                                                    If (LEqual (T_0, 0x06))
                                                     {
                                                         Store (PL06, OWNS)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x07))
+                                                        If (LEqual (T_0, 0x07))
                                                         {
                                                             Store (PL07, OWNS)
                                                         }
@@ -8524,25 +8524,25 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
                 Method (USTA, 0, Serialized)
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     FSMI (0xA8, Zero)
                     Store (OG21, Local1)
                     While (One)
                     {
-                        Store (Local1, _T_0)
-                        If (LEqual (_T_0, 0x06))
+                        Store (Local1, T_0)
+                        If (LEqual (T_0, 0x06))
                         {
                             Store (One, TGLP)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x0C))
+                            If (LEqual (T_0, 0x0C))
                             {
                                 Store (0x04, TGLP)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x0E))
+                                If (LEqual (T_0, 0x0E))
                                 {
                                     Store (0x05, TGLP)
                                 }
@@ -8901,6 +8901,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                         {
                                             Return (0x07)
                                         }
+                                        Return(Zero)
                                     }
                                 }
                             }
@@ -8912,62 +8913,62 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
         Method (SBRL, 0, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store (^LPCB.EC0.BLVL, Local0)
             ^GFX0.PARD ()
             While (One)
             {
-                Store (ToInteger (Local0), _T_0)
-                If (LEqual (_T_0, Zero))
+                Store (ToInteger (Local0), T_0)
+                If (LEqual (T_0, Zero))
                 {
                     Store (PL00, ^GFX0.BCLP)
                     Store (One, ^LPCB.EC0.BLVL)
                 }
                 Else
                 {
-                    If (LEqual (_T_0, One))
+                    If (LEqual (T_0, One))
                     {
                         Store (PL01, ^GFX0.BCLP)
                         Store (0x02, ^LPCB.EC0.BLVL)
                     }
                     Else
                     {
-                        If (LEqual (_T_0, 0x02))
+                        If (LEqual (T_0, 0x02))
                         {
                             Store (PL02, ^GFX0.BCLP)
                             Store (0x03, ^LPCB.EC0.BLVL)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x03))
+                            If (LEqual (T_0, 0x03))
                             {
                                 Store (PL03, ^GFX0.BCLP)
                                 Store (0x04, ^LPCB.EC0.BLVL)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x04))
+                                If (LEqual (T_0, 0x04))
                                 {
                                     Store (PL04, ^GFX0.BCLP)
                                     Store (0x05, ^LPCB.EC0.BLVL)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x05))
+                                    If (LEqual (T_0, 0x05))
                                     {
                                         Store (PL05, ^GFX0.BCLP)
                                         Store (0x06, ^LPCB.EC0.BLVL)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x06))
+                                        If (LEqual (T_0, 0x06))
                                         {
                                             Store (PL06, ^GFX0.BCLP)
                                             Store (0x07, ^LPCB.EC0.BLVL)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x07))
+                                            If (LEqual (T_0, 0x07))
                                             {
                                                 Store (PL07, ^GFX0.BCLP)
                                                 Store (Zero, ^LPCB.EC0.BLVL)
@@ -9013,7 +9014,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
 
-            Method (_DOD, 0, NotSerialized)  // _DOD: Display Output Devices
+            Method (_DOD, 0, Serialized)  // _DOD: Display Output Devices
             {
                 If (CondRefOf (IDAB))
                 {
@@ -9314,55 +9315,55 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
                 Method (_BCM, 1, Serialized)  // _BCM: Brightness Control Method
                 {
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LAnd (LGreaterEqual (Arg0, Zero), LLessEqual (Arg0, 0x64)))
                     {
                         While (One)
                         {
-                            Store (ToInteger (Arg0), _T_0)
-                            If (LEqual (_T_0, 0x0A))
+                            Store (ToInteger (Arg0), T_0)
+                            If (LEqual (T_0, 0x0A))
                             {
                                 Store (PL00, Local1)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x14))
+                                If (LEqual (T_0, 0x14))
                                 {
                                     Store (PL01, Local1)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x1E))
+                                    If (LEqual (T_0, 0x1E))
                                     {
                                         Store (PL02, Local1)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x28))
+                                        If (LEqual (T_0, 0x28))
                                         {
                                             Store (PL03, Local1)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x37))
+                                            If (LEqual (T_0, 0x37))
                                             {
                                                 Store (PL04, Local1)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x46))
+                                                If (LEqual (T_0, 0x46))
                                                 {
                                                     Store (PL05, Local1)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x55))
+                                                    If (LEqual (T_0, 0x55))
                                                     {
                                                         Store (PL06, Local1)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x64))
+                                                        If (LEqual (T_0, 0x64))
                                                         {
                                                             Store (PL07, Local1)
                                                         }
@@ -10562,6 +10563,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (One)
                     }
                 }
+                Return (Zero)
             }
         }
     }
@@ -11024,6 +11026,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Return (Zero)
                     }
                 }
+                Return (Zero)
             }
         }
 
@@ -11315,6 +11318,7 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Add (VALF, One, VALF)
                     }
                 }
+                Return (Zero)
             }
 
             Name (OA30, Buffer (0x34) {})
@@ -11867,8 +11871,8 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
             Method (SPFC, 6, Serialized)
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (ToInteger (Arg0), Index (VALI, Zero))
                 Store (ToInteger (Arg1), Index (VALI, One))
                 Store (ToInteger (Arg2), Index (VALI, 0x02))
@@ -12316,50 +12320,50 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                                                                 Store (BRTL, Local0)
                                                                 While (One)
                                                                 {
-                                                                    Store (ToInteger (Local0), _T_0)
-                                                                    If (LEqual (_T_0, 0x0A))
+                                                                    Store (ToInteger (Local0), T_0)
+                                                                    If (LEqual (T_0, 0x0A))
                                                                     {
                                                                         Store (Zero, Index (VALO, 0x02))
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0x14))
+                                                                        If (LEqual (T_0, 0x14))
                                                                         {
                                                                             Store (0x2000, Index (VALO, 0x02))
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0x1E))
+                                                                            If (LEqual (T_0, 0x1E))
                                                                             {
                                                                                 Store (0x4000, Index (VALO, 0x02))
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0x28))
+                                                                                If (LEqual (T_0, 0x28))
                                                                                 {
                                                                                     Store (0x6000, Index (VALO, 0x02))
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_0, 0x37))
+                                                                                    If (LEqual (T_0, 0x37))
                                                                                     {
                                                                                         Store (0x8000, Index (VALO, 0x02))
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_0, 0x46))
+                                                                                        If (LEqual (T_0, 0x46))
                                                                                         {
                                                                                             Store (0xA000, Index (VALO, 0x02))
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_0, 0x55))
+                                                                                            If (LEqual (T_0, 0x55))
                                                                                             {
                                                                                                 Store (0xC000, Index (VALO, 0x02))
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_0, 0x64))
+                                                                                                If (LEqual (T_0, 0x64))
                                                                                                 {
                                                                                                     Store (0xE000, Index (VALO, 0x02))
                                                                                                 }
@@ -12456,50 +12460,50 @@ DefinitionBlock ("acpi_dsdt.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
 
                                                                     While (One)
                                                                     {
-                                                                        Store (ToInteger (Local2), _T_1)
-                                                                        If (LEqual (_T_1, Zero))
+                                                                        Store (ToInteger (Local2), T_1)
+                                                                        If (LEqual (T_1, Zero))
                                                                         {
                                                                             Store (Zero, Index (VALO, 0x02))
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_1, One))
+                                                                            If (LEqual (T_1, One))
                                                                             {
                                                                                 Store (0x2000, Index (VALO, 0x02))
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_1, 0x02))
+                                                                                If (LEqual (T_1, 0x02))
                                                                                 {
                                                                                     Store (0x4000, Index (VALO, 0x02))
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_1, 0x03))
+                                                                                    If (LEqual (T_1, 0x03))
                                                                                     {
                                                                                         Store (0x6000, Index (VALO, 0x02))
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_1, 0x04))
+                                                                                        If (LEqual (T_1, 0x04))
                                                                                         {
                                                                                             Store (0x8000, Index (VALO, 0x02))
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_1, 0x05))
+                                                                                            If (LEqual (T_1, 0x05))
                                                                                             {
                                                                                                 Store (0xA000, Index (VALO, 0x02))
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_1, 0x06))
+                                                                                                If (LEqual (T_1, 0x06))
                                                                                                 {
                                                                                                     Store (0xC000, Index (VALO, 0x02))
                                                                                                 }
                                                                                                 Else
                                                                                                 {
-                                                                                                    If (LEqual (_T_1, 0x07))
+                                                                                                    If (LEqual (T_1, 0x07))
                                                                                                     {
                                                                                                         Store (0xE000, Index (VALO, 0x02))
                                                                                                     }
