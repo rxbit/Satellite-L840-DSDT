@@ -7551,6 +7551,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 Device (LCD)
                 {
                     Name (_ADR, 0x0110)  // _ADR: Address
+                    Name (_HID, EisaId ("LCD1234"))
                     Name (_PSC, Zero)  // _PSC: Power State Current
                     Name (_S3D, 0x03)  // _S3D: S3 Device State
                     Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
@@ -10084,6 +10085,13 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     }
                 }
             }
+        }
+	Device (PNLF) 
+	{
+            Name (_HID, EisaId ("APP0002"))
+            Name (_CID, "backlight")
+            Name (_UID, 0x0A)
+            Name (_STA, 0x0B)
         }
         Device (PWRB)
         {
