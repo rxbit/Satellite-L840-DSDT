@@ -5497,6 +5497,46 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                         Zero
                     })
                 }
+            }         
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x0E)
+                    {
+                        "built-in", 
+                        Buffer (One)
+                        {
+                            0x01
+                        }, 
+                        "Codec-id", 
+                        Buffer (0x04)
+                        {
+                            0x6E, 0x50, 0xF1, 0x14
+                        }, 
+                        "layout-id", 
+                        Buffer (0x04)
+                        {
+                            0x0C, 0x00, 0x00, 0x00
+                        }, 
+                        "model", 
+                        Buffer (0x1A)
+                        {
+                            "HD Audio Conexant Cx20590"
+                        }, 
+                        "device-type", 
+                        Buffer (0x11)
+                        {
+                            "Audio Controller"
+                        }, 
+                        "hda-gfx", 
+                        Buffer (0x0A)
+                        {
+                            "onboard-1"
+                        }, 
+                        "PinConfigurations", 
+                        Buffer (Zero) {}
+                    }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
             }
         }
         Device (DOCK)
