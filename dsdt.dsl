@@ -2727,6 +2727,14 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Name (_UID, Zero)  // _UID: Unique ID
                     Name (BUF0, ResourceTemplate ()
                     {
+                        IRQNoFlags ()
+                        {0}
+                        IRQNoFlags ()
+                        {8}
+                        IRQNoFlags ()
+                        {11}
+                        IRQNoFlags ()
+                        {15}
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
