@@ -5508,40 +5508,35 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }         
             Method (_DSM, 4, NotSerialized)
             {
-                Store (Package (0x0E)
+                Store (Package (0x0C)
                     {
-                        "built-in", 
-                        Buffer (One)
-                        {
-                            0x01
-                        }, 
-                        "Codec-id", 
+                        "codec-id", 
                         Buffer (0x04)
                         {
-                            0x6E, 0x50, 0xF1, 0x14
+                             0x6E, 0x50, 0xF1, 0x14
                         }, 
                         "layout-id", 
                         Buffer (0x04)
                         {
-                            0x0C, 0x00, 0x00, 0x00
+                             0x0C, 0x00, 0x00, 0x00
                         }, 
-                        "model", 
-                        Buffer (0x1A)
-                        {
-                            "HD Audio Conexant Cx20590"
-                        }, 
-                        "device-type", 
-                        Buffer (0x11)
-                        {
-                            "Audio Controller"
-                        }, 
+                        "PinConfigurations", 
+                        Buffer (Zero) {}, 
                         "hda-gfx", 
                         Buffer (0x0A)
                         {
                             "onboard-1"
                         }, 
-                        "PinConfigurations", 
-                        Buffer (Zero) {}
+                        "device-type", 
+                        Buffer (0x11)
+                        {
+                            "Conexant CX20590"
+                        }, 
+                        "MaximumBootBeepVolume", 
+                        Buffer (One)
+                        {
+                             0x4D
+                        }
                     }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
