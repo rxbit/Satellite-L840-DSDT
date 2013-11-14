@@ -1412,51 +1412,54 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 CreateDWordField (Local0, Zero, CDW1)
                 CreateDWordField (Local0, 0x04, CDW2)
                 CreateDWordField (Local0, 0x08, CDW3)
-                If (^XHC.CUID (Arg0))
+                Store (CDW2, SUPP)
+                Store (CDW3, CTRL)
+                If (LEqual (0x01, OSDW ()))
                 {
-                    Return (^XHC.POSC (Arg1, Arg2, Arg3))
+                    If (LAnd (LEqual (Arg0, GUID), NEXP))
+                    {
+                        If (Not (And (CDW1, One)))
+                        {
+                            If (And (CTRL, One))
+                            {
+                                NHPG ()
+                            }
+                            If (And (CTRL, 0x04))
+                            {
+                                NPME ()
+                            }
+                        }
+                        If (LNotEqual (Arg1, One))
+                        {
+                            Or (CDW1, 0x08, CDW1)
+                        }
+                        If (LNotEqual (CDW3, CTRL))
+                        {
+                            Or (CDW1, 0x10, CDW1)
+                        }
+                        Store (CTRL, CDW3)
+                        Store (CTRL, OSCC)
+                        Return (Local0)
+                    }
+                    Else
+                    {
+                        Or (CDW1, 0x04, CDW1)
+                        Return (Local0)
+                    }
                 }
                 Else
                 {
-                    If (_OSI ("Windows 2012"))
+                    If (^XHC1.CUID (Arg0))
                     {
-                        If (LEqual (XCNT, Zero))
-                        {
-                            ^XHC.XSEL ()
-                            Increment (XCNT)
-                        }
+                            Store (One, ^XHC1.PASS)
+                            Store (One, ^XHC1.PAHC)
+                            Store (One, ^XHC1.PBSS)
+                            Store (One, ^XHC1.PBHC)
+                            Store (One, ^XHC1.PCSS)
+                            Store (One, ^XHC1.PCHC)
+                            Store (One, ^XHC1.PDSS)
+                            Store (One, ^XHC1.PDHC)
                     }
-                }
-                If (LAnd (LEqual (Arg0, GUID), NEXP))
-                {
-                    Store (CDW2, SUPP)
-                    Store (CDW3, CTRL)
-                    If (Not (And (CDW1, One)))
-                    {
-                        If (And (CTRL, One))
-                        {
-                            NHPG ()
-                        }
-                        If (And (CTRL, 0x04))
-                        {
-                            NPME ()
-                        }
-                    }
-                    If (LNotEqual (Arg1, One))
-                    {
-                        Or (CDW1, 0x08, CDW1)
-                    }
-                    If (LNotEqual (CDW3, CTRL))
-                    {
-                        Or (CDW1, 0x10, CDW1)
-                    }
-                    Store (CTRL, CDW3)
-                    Store (CTRL, OSCC)
-                    Return (Local0)
-                }
-                Else
-                {
-                    Or (CDW1, 0x04, CDW1)
                     Return (Local0)
                 }
             }
@@ -2727,6 +2730,10 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                     Name (_UID, Zero)  // _UID: Unique ID
                     Name (BUF0, ResourceTemplate ()
                     {
+                        IRQNoFlags ()
+                        {0}
+                        IRQNoFlags ()
+                        {8}
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
@@ -3273,7 +3280,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 TRAP (TRTD, 0x1E)
             }
             If (LOr (LOr (LEqual (\_SB.PCI0.EHC1.PMEE, One), LEqual (\_SB.PCI0.EHC2.PMEE, One)), LEqual (
-                And (\_SB.PCI0.XHC.PMEE, XHCM), One)))
+                And (\_SB.PCI0.XHC1.PMEE, XHCM), One)))
             {
                 Store (One, \_SB.PCI0.LPCB.EC0.USEP)
                 If (LAnd (MD10, OG03))
@@ -3582,6 +3589,10 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 {
                     Store (0x07DC, OSYS)
                 }
+    			If (_OSI ("Darwin"))
+    			{
+    			    Store (0x2710, OSYS)
+    			}
             }
         }
         Method (NHPG, 0, Serialized)
@@ -4201,6 +4212,17 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }
             Return (0x04)
         }
+        Method (OSDW, 0, NotSerialized)
+        {
+            If (LEqual (OSYS, 0x2710))
+            {
+                Return (One)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
     }
     Scope (_SB.PCI0)
     {
@@ -4315,6 +4337,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                             })
                             Return (PLDP)
                         }
+                        Name (MUXS, "XHCA")
                     }
                     Device (PR12)
                     {
@@ -5081,7 +5104,7 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 0x03
             })
         }
-        Device (XHC)
+        Device (XHC1)
         {
             Name (_ADR, 0x00140000)  // _ADR: Address
             OperationRegion (XPRT, PCI_Config, Zero, 0xF0)
@@ -5097,6 +5120,70 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 PR3,    32, 
                 PR3M,   32
             }
+            OperationRegion (XH1C, PCI_Config, 0xD0, 0x10)
+            Field (XH1C, ByteAcc, NoLock, Preserve)
+            {
+                PAHC,   1, 
+                PBHC,   1, 
+                PCHC,   1, 
+                PDHC,   1, 
+                Offset (0x08), 
+                PASS,   1, 
+                PBSS,   1, 
+                PCSS,   1, 
+                PDSS,   1
+            }
+            OperationRegion (XHC2, PCI_Config, 0x44, 0x04)
+            Field (XHC2, ByteAcc, NoLock, Preserve)
+            {
+                Offset (0x01), 
+                MIAI,   2
+            }
+            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+            {
+                0x0D, 
+                0x03
+            })
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x0B)
+                    {
+                        "AAPL,current-available", 
+                        0x0834, 
+                        "AAPL,current-extra", 
+                        0x0898, 
+                        "AAPL,current-extra-in-sleep", 
+                        0x0640, 
+                        "AAPL,max-port-current-in-sleep", 
+                        0x0834, 
+                        "AAPL,device-internal", 
+                        0x00, 
+                        Buffer (0x01)
+                        {
+                             0x00
+                        }
+                    }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
+            Method (_INI, 0, NotSerialized)
+            {
+                If (OSDW)
+                {
+                    Store (Zero, MIAI)
+                }
+                If (LAnd (LGreaterEqual (OSYS, 0x07DC), LLess (OSYS, 0x2710)))
+                {
+                    Store (One, \_SB.PCI0.XHC1.PASS)
+                    Store (One, \_SB.PCI0.XHC1.PAHC)
+                    Store (One, \_SB.PCI0.XHC1.PBSS)
+                    Store (One, \_SB.PCI0.XHC1.PBHC)
+                    Store (One, \_SB.PCI0.XHC1.PCSS)
+                    Store (One, \_SB.PCI0.XHC1.PCHC)
+                    Store (One, \_SB.PCI0.XHC1.PDSS)
+                    Store (One, \_SB.PCI0.XHC1.PDHC)
+                }
+            }
             Method (CUID, 1, Serialized)
             {
                 If (LEqual (Arg0, Buffer (0x10)
@@ -5109,55 +5196,6 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
                 Return (Zero)
             }
-            Method (POSC, 3, Serialized)
-            {
-                CreateDWordField (Arg2, Zero, CDW1)
-                CreateDWordField (Arg2, 0x08, CDW3)
-                If (LNotEqual (Arg1, One))
-                {
-                    Or (CDW1, 0x08, CDW1)
-                }
-                If (LEqual (XHCI, Zero))
-                {
-                    Or (CDW1, 0x02, CDW1)
-                }
-                If (LNot (And (CDW1, One)))
-                {
-                    If (And (CDW3, One))
-                    {
-                        ESEL ()
-                    }
-                    Else
-                    {
-                        XSEL ()
-                    }
-                }
-                Return (Arg2)
-            }
-            Method (XSEL, 0, Serialized)
-            {
-                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
-                {
-                    Store (Zero, Local0)
-                    And (PR3, 0xFFFFFFF0, Local0)
-                    Or (Local0, XHPM, Local0)
-                    And (Local0, PR3M, PR3)
-                    Store (Zero, Local0)
-                    And (PR2, 0xFFFFFFF0, Local0)
-                    Or (Local0, XHPM, Local0)
-                    And (Local0, PR2M, PR2)
-                    Store (One, XUSB)
-                }
-            }
-            Method (ESEL, 0, Serialized)
-            {
-                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
-                {
-                    And (PR3, 0xFFFFFFF0, PR3)
-                    And (PR2, 0xFFFFFFF0, PR2)
-                    Store (Zero, XUSB)
-                }
-            }
             Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
             {
                 Return (0x02)
@@ -5166,303 +5204,142 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             {
                 Return (0x02)
             }
+            Method (XHCA, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (One, PASS)
+                }
+                Store (One, PAHC)
+            }
+            Method (XHCB, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (One, PBSS)
+                }
+                Store (One, PBHC)
+            }
+            Method (XHCC, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (One, PCSS)
+                }
+                Store (One, PCHC)
+            }
+            Method (XHCD, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (One, PDSS)
+                }
+                Store (One, PDHC)
+            }
+            Method (EHCA, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (Zero, PASS)
+                }
+                Store (Zero, PAHC)
+            }
+            Method (EHCB, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (Zero, PBSS)
+                }
+                Store (Zero, PBHC)
+            }
+            Method (EHCC, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (Zero, PCSS)
+                }
+                Store (Zero, PCHC)
+            }
+            Method (EHCD, 0, NotSerialized)
+            {
+                If (LNot (OSDW))
+                {
+                    Store (Zero, PDSS)
+                }
+                Store (Zero, PDHC)
+            }
             Device (RHUB)
             {
                 Name (_ADR, Zero)  // _ADR: Address
-                Device (HSP1)
+                Device (PRT1)
                 {
                     Name (_ADR, One)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
                     {
-                        Name (UPCP, Package (0x04)
-                        {
                             0xFF, 
                             0x03, 
                             Zero, 
                             Zero
-                        })
-                        If (LNot (And (PR2, One)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                     })
+                    Name (_PLD, Package (0x10)  // _PLD: Physical Location of Device
                     {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
                                 /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, One)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
+                    })
+                    Name (MUXS, "EHCA")
                 }
-                Device (HSP2)
+                Device (PRT2)
                 {
                     Name (_ADR, 0x02)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
                     {
-                        Name (UPCP, Package (0x04)
-                        {
                             0xFF, 
                             0x03, 
                             Zero, 
                             Zero
-                        })
-                        If (LNot (And (PR2, 0x02)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                     })
+                    Name (_PLD, Package (0x10)  // _PLD: Physical Location of Device
                     {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
                                 /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x02)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
+                    })
+                    Name (MUXS, "EHCB")
                 }
-                Device (HSP3)
+                Device (PRT3)
                 {
                     Name (_ADR, 0x03)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
                     {
-                        Name (UPCP, Package (0x04)
-                        {
                             0xFF, 
                             0x03, 
                             Zero, 
                             Zero
-                        })
-                        If (LNot (And (PR2, 0x04)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                     })
+                    Name (_PLD, Package (0x10)  // _PLD: Physical Location of Device
                     {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
                                 /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x04)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
+                    })
+                    Name (MUXS, "EHCC")
                 }
-                Device (HSP4)
+                Device (PRT4)
                 {
-                    Name (_ADR, 0x04)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
+                    Name (_ADR, 0x03)  // _ADR: Address
+                    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
                     {
-                        Name (UPCP, Package (0x04)
-                        {
                             0xFF, 
                             0x03, 
                             Zero, 
                             Zero
-                        })
-                        If (LNot (And (PR2, 0x08)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
+                     })
+                    Name (_PLD, Package (0x10)  // _PLD: Physical Location of Device
                     {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
                                 /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
                                 /* 0008 */   0x69, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR2, 0x08)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
-                }
-                Device (SSP1)
-                {
-                    Name (_ADR, 0x05)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCP, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        If (LNot (And (PR3, One)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR3, One)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
-                }
-                Device (SSP2)
-                {
-                    Name (_ADR, 0x06)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCP, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        If (LNot (And (PR3, 0x02)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR3, 0x02)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
-                }
-                Device (SSP3)
-                {
-                    Name (_ADR, 0x07)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCP, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        If (LNot (And (PR3, 0x04)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR3, 0x04)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
-                }
-                Device (SSP4)
-                {
-                    Name (_ADR, 0x08)  // _ADR: Address
-                    Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
-                    {
-                        Name (UPCP, Package (0x04)
-                        {
-                            0xFF, 
-                            0x03, 
-                            Zero, 
-                            Zero
-                        })
-                        If (LNot (And (PR3, 0x08)))
-                        {
-                            Store (Zero, Index (UPCP, Zero))
-                        }
-                        Return (UPCP)
-                    }
-                    Method (_PLD, 0, Serialized)  // _PLD: Physical Location of Device
-                    {
-                        Name (PLDP, Package (0x01)
-                        {
-                            Buffer (0x10)
-                            {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
-                            }
-                        })
-                        CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
-                        If (LNot (And (PR3, 0x08)))
-                        {
-                            And (VIS, Zero, VIS)
-                        }
-                        Return (PLDP)
-                    }
+                    })
+                    Name (MUXS, "EHCD")
                 }
             }
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                0x0D, 
-                0x03
-            })
         }
         Device (HDEF)
         {
@@ -5500,40 +5377,35 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
             }         
             Method (_DSM, 4, NotSerialized)
             {
-                Store (Package (0x0E)
+                Store (Package (0x0C)
                     {
-                        "built-in", 
-                        Buffer (One)
-                        {
-                            0x01
-                        }, 
-                        "Codec-id", 
+                        "codec-id", 
                         Buffer (0x04)
                         {
-                            0x6E, 0x50, 0xF1, 0x14
+                             0x6E, 0x50, 0xF1, 0x14
                         }, 
                         "layout-id", 
                         Buffer (0x04)
                         {
-                            0x0C, 0x00, 0x00, 0x00
+                             0x0C, 0x00, 0x00, 0x00
                         }, 
-                        "model", 
-                        Buffer (0x1A)
-                        {
-                            "HD Audio Conexant Cx20590"
-                        }, 
-                        "device-type", 
-                        Buffer (0x11)
-                        {
-                            "Audio Controller"
-                        }, 
+                        "PinConfigurations", 
+                        Buffer (Zero) {}, 
                         "hda-gfx", 
                         Buffer (0x0A)
                         {
                             "onboard-1"
                         }, 
-                        "PinConfigurations", 
-                        Buffer (Zero) {}
+                        "device-type", 
+                        Buffer (0x11)
+                        {
+                            "Conexant CX20590"
+                        }, 
+                        "MaximumBootBeepVolume", 
+                        Buffer (One)
+                        {
+                             0x4D
+                        }
                     }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
@@ -10086,7 +9958,8 @@ DefinitionBlock ("DSDT.aml", "DSDT", 1, "TOSQCI", "TOSQCI00", 0x00000000)
                 }
             }
         }
-        Device (PNLF) {
+	Device (PNLF) 
+	{
             Name (_HID, EisaId ("APP0002"))
             Name (_CID, "backlight")
             Name (_UID, 0x0A)
